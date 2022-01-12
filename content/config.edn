@@ -1,3 +1,4 @@
+;; https://cryogenweb.org/docs/configuration.html
 {:site-title                   "Curious (Clojure) Programmer"
  :author                       "Juraj Martinka"
  :description                  "Simplicity matters"
@@ -26,7 +27,8 @@
  :previews?                    false
  :posts-per-page               15
  :blocks-per-preview           2
- :clean-urls                   :trailing-slash
+ ;; Set this to :no-trailing-slash if you use GitHub Pages and prefer URLs not contain a final trailing slash. 
+ :clean-urls                   :no-trailing-slash
  :collapse-subdirs?            false
  :hide-future-posts?           true
  :klipse                       {}

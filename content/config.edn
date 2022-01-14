@@ -1,7 +1,8 @@
-{:site-title                   "My Awesome Blog"
- :author                       "Bob Bobbert"
- :description                  "This blog is awesome"
- :site-url                     "http://blogawesome.com/"
+;; https://cryogenweb.org/docs/configuration.html
+{:site-title                   "Curious (Clojure) Programmer"
+ :author                       "Juraj Martinka"
+ :description                  "Simplicity matters"
+ :site-url                     "http://curiousprogrammer.net/"
  :post-root                    "posts"
  :page-root                    "pages"
  :post-root-uri                "posts-output"
@@ -9,10 +10,10 @@
  :tag-root-uri                 "tags-output"
  :author-root-uri              "authors-output"
  :public-dest                  "public"
- :blog-prefix                  "/blog"
+ :blog-prefix                  "/"
  :rss-name                     "feed.xml"
  :rss-filters                  ["cryogen"]
- :recent-posts                 3
+ :recent-posts                 5
  :post-date-format             "yyyy-MM-dd"
  :archive-group-format         "yyyy MMMM"
  :sass-src                     []
@@ -24,9 +25,10 @@
  :disqus-shortname             ""
  :ignored-files                [#"\.#.*" #".*\.swp$"]
  :previews?                    false
- :posts-per-page               5
+ :posts-per-page               15
  :blocks-per-preview           2
- :clean-urls                   :trailing-slash
+ ;; Set this to :no-trailing-slash if you use GitHub Pages and prefer URLs not contain a final trailing slash. 
+ :clean-urls                   :no-trailing-slash
  :collapse-subdirs?            false
  :hide-future-posts?           true
  :klipse                       {}

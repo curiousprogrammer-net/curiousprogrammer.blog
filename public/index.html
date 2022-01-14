@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <!-- Website Template designed by www.downloadwebsitetemplates.co.uk -->
+    <!-- Modified to fit Cryogen.-->
+    <meta charset="UTF-8">
+    <title>Curious (Clojure) Programmer</title>
+    
+    <meta name="description" content="Simplicity matters">
+    <meta name="keywords" content="">
+    
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <!--[if IE]><![endif]-->
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css" />
+    <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/typography.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow-night-eighties.min.css">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+
+<div id="left">
+
+    <p id="logo">
+        <a title="Curious (Clojure) Programmer" href="/">
+            <span class="fa fa-rocket"></span>
+            <span class="text">Nucleus</span>
+        </a>
+    </p>
+
+    <div id="menucont" class="bodycontainer clearfix">
+        <div class="menutitle">
+            <p><span class="fa fa-reorder"></span><strong>Menu</strong></p>
+        </div>
+        <ul class="menu">
+            <li  class="active" ><a title="Home" href="/">Home</a></li>
+            <li ><a title="Archives" href="/archives">Archives</a></li>
+            
+            <li ><a title="Tags" href="/tags">Tags</a></li>
+            
+            
+            <li >
+                <a href="/pages-output/adoc-page">Adoc Page</a>
+            </li>
+            
+            <li><a title="RSS" href="/feed.xml">RSS</a></li>
+        </ul>
+    </div>
+
+    <div id="socialmedia" class="clearfix">
+        <ul>
+            <li><a title="GitHub" href="./" rel="external"><span class="fa fa-github"></span></a></li>
+            <li><a title="Stack Overflow" href="./" rel="external"><span class="fa fa-stack-overflow"></span></a></li>
+            <li><a title="Google+" href="./" rel="external"><span class="fa fa-google-plus"></span></a></li>
+            <li><a title="LinkedIn" href="./" rel="external"><span class="fa fa-linkedin"></span></a></li>
+            <li><a title="Last.fm" href="./" rel="external"><span class="fa fa-lastfm"></span></a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div id="right" class="clearfix">
+    
+<div id="post">
+    <div class="post-header">
+    <div id="post-meta" class="row">
+        <strong>January 12, 2022</strong>
+        
+    </div>
+    <h1>Moving to Cryogen (with AsciiDoc)</h1>
+</div>
+<div>
+    
+    <div class="sect1"><h2 id="_the_wordpress_problem">The Wordpress problem</h2><div class="sectionbody"><div class="paragraph"><p>I wanted to migrate away from the existing Wordpress-based hosting for <a href="https://curiousprogrammer.net">my curiosprogrammer.net blog</a>
+for a long time yet I have not found time to do that until now.
+Today, I’m finally moving towards much simpler approach using <a href="https://github.com/cryogen-project/cryogen">Cryogen</a> as the underlying blog engine.</p></div></div></div><div class="sect1"><h2 id="_cryogen">Cryogen ===</h2><div class="sectionbody"><div class="paragraph"><p>It’s a simple blog engine written in Clojure.
+It’s used by a number of people in Clojure community, including:</p></div><div class="ulist"><ul><li><p>Sean Corfield: <a href="https://github.com/seancorfield/seancorfield.github.io" class="bare">https://github.com/seancorfield/seancorfield.github.io</a></p></li><li><p>Jakub Holy: <a href="https://blog.jakubholy.net/2019/migrating-from-gatsby-to-cryogen/" class="bare">https://blog.jakubholy.net/2019/migrating-from-gatsby-to-cryogen/</a></p></li></ul></div><div class="paragraph"><p>I think it will well serve my needs
+and I hope that the friction for publishing posts (and the frustrations caused by Wordpress editor)
+is going to disappear.</p></div><div class="sect2"><h3 id="_asciidoc">AsciiDoc</h3><div class="paragraph"><p>I’ve found a couple of AsciiDoc-related links in <a href="https://blog.jakubholy.net/2019/migrating-from-gatsby-to-cryogen/">Jakub Holy’s article</a>
+and decided to give it a try.
+The promise is that it’s better than Markdown (lack of standard and extensibility).</p></div><div class="paragraph"><p>See:</p></div><div class="ulist"><ul><li><p><a href="https://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/">Why You Shouldn’t Use “Markdown” for Documentation</a></p></li><li><p><a href="https://docs.asciidoctor.org/asciidoc/latest/asciidoc-vs-markdown/">Compare AsciiDoc to Markdown</a></p></li></ul></div></div></div></div><div class="sect1"><h2 id="_the_old_blogcontent">The old blog/content</h2><div class="sectionbody"><div class="paragraph"><p>You can find the old posts here: link:</p></div></div></div>
+</div>
+
+<div id="post-tags">
+    <br/> 
+    <b>Tags: </b>
+    
+    <a href="/tags-output/cryogen">cryogen</a>
+    
+    <a href="/tags-output/asciidoc">asciidoc</a>
+    
+</div>
+
+<br/>
+
+    
+
+    <div id="prev-next">
+        
+        
+    </div>
+</div>
+
+<hr/>
+<div id="footercont" class="clearfix">Copyright &copy; 2022 Juraj Martinka
+    <p>Powered by <a href="http://cryogenweb.org">Cryogen</a> | Free Website Template by <a title="free website templates" href="http://www.downloadwebsitetemplates.co.uk" rel="external">Download Website Templates</a></p>
+
+</div>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/scripts.js" type="application/javascript"></script>
+
+
+</body>
+</html>

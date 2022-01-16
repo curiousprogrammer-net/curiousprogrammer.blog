@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <!-- Website Template designed by www.downloadwebsitetemplates.co.uk -->
+    <!-- Modified to fit Cryogen.-->
+    <meta charset="UTF-8">
+    <title>Curious (Clojure) Programmer: Clojure Development Workflow with Spacemacs and CIDER</title>
+    
+<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,fp,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+
+<meta name="description" content="This is a follow-up to my previous post What’s the Best Clojure IDE? I’ll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools.I’ve already described my tour through the various Clojure IDEs/editors and why I’ve chosen the Spacemacs.
+If you haven’t read the previous post, you may want to go back and read at least the Spacemacs to the rescue part.">
+
+<meta property="og:description" content="This is a follow-up to my previous post What’s the Best Clojure IDE? I’ll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools.I’ve already described my tour through the various Clojure IDEs/editors and why I’ve chosen the Spacemacs.
+If you haven’t read the previous post, you may want to go back and read at least the Spacemacs to the rescue part.">
+
+<meta property="og:url" content="http://curiousprogrammer.net/posts/2017-05-12-clojure-development-workflow-with-spacemacs-and-cider" />
+<meta property="og:title" content="Clojure Development Workflow with Spacemacs and CIDER" />
+<meta property="og:type" content="article" />
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <!--[if IE]><![endif]-->
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css" />
+    <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/typography.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow-night-eighties.min.css">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+
+<div id="left">
+
+    <p id="logo">
+        <a title="Curious (Clojure) Programmer" href="/">
+            <span class="fa fa-rocket"></span>
+            <span class="text">Nucleus</span>
+        </a>
+    </p>
+
+    <div id="menucont" class="bodycontainer clearfix">
+        <div class="menutitle">
+            <p><span class="fa fa-reorder"></span><strong>Menu</strong></p>
+        </div>
+        <ul class="menu">
+            <li ><a title="Home" href="/">Home</a></li>
+            <li ><a title="Archives" href="/archives">Archives</a></li>
+            
+            <li ><a title="Tags" href="/tags">Tags</a></li>
+            
+            
+            <li >
+                <a href="/pages/adoc-page">Adoc Page</a>
+            </li>
+            
+            <li><a title="RSS" href="/feed.xml">RSS</a></li>
+        </ul>
+    </div>
+
+    <div id="socialmedia" class="clearfix">
+        <ul>
+            <li><a title="GitHub" href="./" rel="external"><span class="fa fa-github"></span></a></li>
+            <li><a title="Stack Overflow" href="./" rel="external"><span class="fa fa-stack-overflow"></span></a></li>
+            <li><a title="Google+" href="./" rel="external"><span class="fa fa-google-plus"></span></a></li>
+            <li><a title="LinkedIn" href="./" rel="external"><span class="fa fa-linkedin"></span></a></li>
+            <li><a title="Last.fm" href="./" rel="external"><span class="fa fa-lastfm"></span></a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div id="right" class="clearfix">
+    
+<div id="post">
+    <div class="post-header">
+    <div id="post-meta" class="row">
+        <strong>May 12, 2017</strong>
+        
+    </div>
+    <h1>Clojure Development Workflow with Spacemacs and CIDER</h1>
+</div>
+<div>
+    <ul class="toc"><li><a href="#_summary">Summary</a></li><ul><li><a href="#_bonus">Bonus</a></li></ul><li><a href="#_resources">Resources</a></li></ul>
+    <div class="paragraph"><p><em>This is a follow-up to my previous post <a href="https://curiousprogrammer.net/2017/03/21/whats-the-best-clojure-ide/">What’s the Best Clojure IDE?</a> I’ll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools.</em></p></div><div class="paragraph"><p>I’ve already described my tour through the various Clojure IDEs/editors and why I’ve chosen the Spacemacs.
+If you haven’t read the <a href="https://curiousprogrammer.net/2017/03/21/whats-the-best-clojure-ide/">previous post</a>, you may want to go back and read at least the <a href="https://curiousprogrammer.net/2017/03/21/whats-the-best-clojure-ide/#spacemacs-to-the-rescue">Spacemacs to the rescue</a> part.</p></div><div class="paragraph"><p>In this post, I’ll try to dig deeper and show you the complete development workflow.
+I’ve chosen video screencast as a primary format for this because I think it’s more useful to see everything in action.</p></div><div class="paragraph"><p>We’ll create a simple <em>clojure-repl</em> project containing the <em>jmethods</em> function for listing all public methods of java classes.</p></div><div class="paragraph"><p>You can find <strong><a href="https://www.youtube.com/watch?v=4ecC3jqHooc">the video</a></strong> in the <a href="https://www.youtube.com/channel/UCD_9SmDPrAe-sZAfSB9tjdg">Curious Programmer YouTube channel</a>.</p></div><div class="paragraph"><p>Below is a brief summary of topics/tips presented in the screencast.</p></div><div class="sect1"><h2 id="_summary">Summary</h2><div class="sectionbody"><div class="ulist"><ul><li><p>Generate new leiningen project: <em>lein new clojure-repl</em></p></li><li><p>Open Spacemacs</p></li><li><p>Create new layout: <code>SPC l 2</code>;
+enter layout name: <em>clojure-repl</em></p></li><li><p>Open <em>clojure-repl/__project.clj</em> by pressing <code>SPC f f</code> and looking up the file on a file system</p></li><li><p>Open <em>Neotree</em> buffer via <code>SPC p t</code> to explore project structure</p><div class="ulist"><ul><li><p>You can navigate in this buffer via standard vim key bindings: <code>j, k, l, h</code>.
+You can also press <code>?</code> to open the help</p></li></ul></div></li><li><p>Clean the initial project skeleton and commit them via magit: <code>SPC g s</code></p><div class="ulist"><ul><li><p>Expand/collapse the changes by pressing <code>TAB</code></p></li><li><p>Stage the changes for commit by pressing <code>s</code></p></li><li><p>Commit the staged changes by <code>c c</code></p></li></ul></div></li><li><p>Create java.clj file in the Neotree buffer by pressing <code>c</code> ("create") and entering the name of the file.</p></li><li><p>Run <em>cider-jack-in</em> by <code>, '</code></p></li><li><p>Switch between REPL and java.clj buffer using <code>C-c C-z</code></p></li><li><p>Evaluate the java.clj buffer via <code>, e b</code></p></li><li><p>Evaluate the function at a point by <code>, e f</code></p></li><li><p>Send results from java.clj buffer to the REPL using <code>, s e</code> while keeping cursor right after the form you want to evaluate</p></li><li><p>Use <em>clojure.core/bean</em> function to examine the properties of java class</p></li><li><p>Reformat a buffer with <code>, =</code> to make sure that your code is compliant with <a href="https://github.com/bbatsov/clojure-style-guide">Clojure style guide</a></p></li><li><p>Use <code>SPC k s</code> for "forward slurp"</p></li><li><p>Use <em>cljr-add-missing-libspec</em> <code>, r a m</code> to add a require unknown symbols (e.g.
+<em>clojure.string/join</em>) automatically</p></li><li><p>Show documentation popup with <code>, h h</code></p></li><li><p>Navigate to source code by <code>, g g</code></p><div class="ulist"><ul><li><p>works both for Clojure functions and Java classes</p></li><li><p>make sure that you have JDK sources installed on your system - <a href="https://github.com/clojure-emacs/cider-nrepl/blob/master/src/cider/nrepl/middleware/util/java.clj#L47">CIDER will add them automatically to the classpath</a></p></li></ul></div></li></ul></div><div class="sect2"><h3 id="_bonus">Bonus</h3><div class="paragraph"><p>Additional tips mentioned at the end of the video:</p></div><div class="ulist"><ul><li><p>Describe key bindings via <code>SPC ?</code></p></li><li><p>Start with <code>M-x</code> and type in the "cider-" and/or use menu bar (F10) to search for CIDER commands and explore CIDER capabilities</p></li><li><p>Add new dependencies to project.clj and hot-load them into the REPL via <code>, r a p</code></p></li><li><p><em>cider-inspect-last-result</em></p><div class="ulist"><ul><li><p>press ENTER to deep dive</p></li><li><p>press <code>C-z</code> to switch into the Emacs mode and then <code>l</code> to go up</p></li></ul></div></li><li><p>Use <code>SPC /</code> for a quick search within the project</p><div class="ulist"><ul><li><p>You can also use <code>C-c C-e</code> to enter the edit mode and replace the text</p></li></ul></div></li><li><p>Type <code>*</code> for a quick search/highlight of a symbol under the cursor</p></li><li><p>Display online java doc for Java class with <code>, h j</code></p></li><li><p>Add Clojure sources to the project.clj/profiles.clj to be able to navigate to clojure.core java classes, e.g.
+<em>clojure.lang.PersistentVector</em></p></li><li><p><strong>Not covered in video</strong></p><div class="ulist"><ul><li><p><em>cider-browse-ns</em> <code>, h n</code> to list all the functions in given namespace together with a documentation preview</p></li><li><p>_cider-refresh _ <code>, s x</code> to test everything in a fresh environment</p></li><li><p>CIDER debugger - debug function at the point: <code>, d b</code></p><div class="ulist"><ul><li><p><a href="https://cider.readthedocs.io/en/latest/debugging/#keys">debug mode key bindings</a></p></li></ul></div></li></ul></div></li></ul></div></div></div></div><div class="sect1"><h2 id="_resources">Resources</h2><div class="sectionbody"><div class="ulist"><ul><li><p><strong><a href="https://www.youtube.com/watch?v=4ecC3jqHooc">Youtube video</a></strong></p></li><li><p><a href="https://github.com/jumarko/clojure-repl/blob/master/src/clojure_repl/java.clj">clojure-repl project on GitHub</a></p><div class="ulist"><ul><li><p>besides the <em>jmethods</em> function, there are also <em>jconstructors</em> and <em>jinfo</em> functions which are not shown in the video</p></li></ul></div></li><li><p><a href="https://www.youtube.com/watch?v=aYA4AAjLfT0">F(by) 2016 - Bozhidar Batsov - Speech 2 - Deep Dive into CIDER</a> - Bozhidar’s talk demonstrating many cool CIDER’s features</p></li><li><p><a href="https://www.youtube.com/watch?v=Uuwg-069NYE">Spacemacs - From First Install to Clojure programming without manual configuration</a> - very good and short Spacemacs introductory video</p></li><li><p><a href="https://www.youtube.com/watch?v=k5X2Hb3tc2s">Development Workflow with Spacemacs</a> - quick video introduction with generic spacemacs tips;
+shows more "git magic" using <em>magit</em></p></li><li><p><a href="https://github.com/Engelberg/instaparse">Instaparse library</a></p></li></ul></div></div></div>
+</div>
+
+<div id="post-tags">
+    <br/> 
+    <b>Tags: </b>
+    
+    <a href="/tags/clojure">clojure</a>
+    
+    <a href="/tags/editors">editors</a>
+    
+    <a href="/tags/emacs-cider">emacs-cider</a>
+    
+    <a href="/tags/emacs">emacs</a>
+    
+    <a href="/tags/spacemacs">spacemacs</a>
+    
+</div>
+
+<br/>
+
+    <div id="prev-next">
+        
+        <a class="button" href="/posts/2017-09-18-busy-clojure-developer-guide-to-podcasts">&laquo; Busy (Clojure) Developer Guide to Podcasts</a>
+        
+        
+        <a class="right button" href="/posts/2017-03-21-whats-the-best-clojure-ide">What&#39;s the Best Clojure IDE? &raquo;</a>
+        
+    </div>
+
+    
+
+
+</div>
+
+<hr/>
+<div id="footercont" class="clearfix">Copyright &copy; 2022 Juraj Martinka
+    <p>Powered by <a href="http://cryogenweb.org">Cryogen</a> | Free Website Template by <a title="free website templates" href="http://www.downloadwebsitetemplates.co.uk" rel="external">Download Website Templates</a></p>
+
+</div>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/scripts.js" type="application/javascript"></script>
+
+
+</body>
+</html>

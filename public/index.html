@@ -50,10 +50,6 @@
             <li ><a title="Tags" href="/tags">Tags</a></li>
             
             
-            <li >
-                <a href="/pages-output/adoc-page">Adoc Page</a>
-            </li>
-            
             <li><a title="RSS" href="/feed.xml">RSS</a></li>
         </ul>
     </div>
@@ -75,30 +71,40 @@
 <div id="post">
     <div class="post-header">
     <div id="post-meta" class="row">
-        <strong>January 12, 2022</strong>
+        <strong>January 16, 2022</strong>
         
     </div>
-    <h1>Moving to Cryogen (with AsciiDoc)</h1>
+    <h1>Moving My Blog to Cryogen and Cloudflare Pages</h1>
 </div>
 <div>
-    
-    <div class="sect1"><h2 id="_the_wordpress_problem">The Wordpress problem</h2><div class="sectionbody"><div class="paragraph"><p>I wanted to migrate away from the existing Wordpress-based hosting for <a href="https://curiousprogrammer.net">my curiosprogrammer.net blog</a>
+    <ul class="toc"><li><a href="#_the_wordpress_problem">The Wordpress problem</a></li><li><a href="#_cryogen">Cryogen</a></li><ul><li><a href="#_asciidoc">AsciiDoc</a></li></ul><li><a href="#_cloudflare_pages">Cloudflare pages</a></li><li><a href="#_the_old_blogcontent">The old blog/content</a></li></ul>
+    <div class="sect1"><h2 id="_the_wordpress_problem">The Wordpress problem</h2><div class="sectionbody"><div class="paragraph"><p>I wanted to migrate away from the existing Wordpress-based hosting for
+<a href="https://curiousprogrammer.net">my curiosprogrammer.net blog</a>
 for a long time yet I have not found time to do that until now.
-Today, I’m finally moving towards much simpler approach using <a href="https://github.com/cryogen-project/cryogen">Cryogen</a> as the underlying blog engine.</p></div></div></div><div class="sect1"><h2 id="_cryogen">Cryogen ===</h2><div class="sectionbody"><div class="paragraph"><p>It’s a simple blog engine written in Clojure.
-It’s used by a number of people in Clojure community, including:</p></div><div class="ulist"><ul><li><p>Sean Corfield: <a href="https://github.com/seancorfield/seancorfield.github.io" class="bare">https://github.com/seancorfield/seancorfield.github.io</a></p></li><li><p>Jakub Holy: <a href="https://blog.jakubholy.net/2019/migrating-from-gatsby-to-cryogen/" class="bare">https://blog.jakubholy.net/2019/migrating-from-gatsby-to-cryogen/</a></p></li></ul></div><div class="paragraph"><p>I think it will well serve my needs
-and I hope that the friction for publishing posts (and the frustrations caused by Wordpress editor)
-is going to disappear.</p></div><div class="sect2"><h3 id="_asciidoc">AsciiDoc</h3><div class="paragraph"><p>I’ve found a couple of AsciiDoc-related links in <a href="https://blog.jakubholy.net/2019/migrating-from-gatsby-to-cryogen/">Jakub Holy’s article</a>
+Today, I’m finally moving towards much simpler approach using
+<a href="https://github.com/cryogen-project/cryogen">Cryogen</a> as the underlying blog engine.</p></div></div></div><div class="sect1"><h2 id="_cryogen">Cryogen</h2><div class="sectionbody"><div class="paragraph"><p><a href="https://cryogenweb.org/">Cryogen</a> is a simple blog engine written in Clojure.
+It’s used by a number of people in Clojure community, including <a href="https://github.com/seancorfield/seancorfield.github.io">Sean Corfield</a> and <a href="https://blog.jakubholy.net/2019/migrating-from-gatsby-to-cryogen/">Jakub Holy</a>.</p></div><div class="paragraph"><p>I think it will well serve my needs
+and I hope that the friction for publishing posts
+(and the frustrations caused by Wordpress editor)
+is going to diminish.</p></div><div class="sect2"><h3 id="_asciidoc">AsciiDoc</h3><div class="paragraph"><p>I’ve found a couple of AsciiDoc-related links in
+<a href="https://blog.jakubholy.net/2019/migrating-from-gatsby-to-cryogen/">Jakub Holy’s article</a>
 and decided to give it a try.
-The promise is that it’s better than Markdown (lack of standard and extensibility).</p></div><div class="paragraph"><p>See:</p></div><div class="ulist"><ul><li><p><a href="https://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/">Why You Shouldn’t Use “Markdown” for Documentation</a></p></li><li><p><a href="https://docs.asciidoctor.org/asciidoc/latest/asciidoc-vs-markdown/">Compare AsciiDoc to Markdown</a></p></li></ul></div></div></div></div><div class="sect1"><h2 id="_the_old_blogcontent">The old blog/content</h2><div class="sectionbody"><div class="paragraph"><p>You can find the old posts here: link:</p></div></div></div>
+The promise is that, unlike Markdown, it’s standardized, extensible and has richer formatting options.</p></div><div class="paragraph"><p>See:</p></div><div class="ulist"><ul><li><p><a href="https://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/">Why You Shouldn’t Use “Markdown” for Documentation</a></p></li><li><p><a href="https://docs.asciidoctor.org/asciidoc/latest/asciidoc-vs-markdown/">Compare AsciiDoc to Markdown</a></p></li><li><p><a href="https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/">AsciiDoc Syntax Quick Reference</a></p></li></ul></div></div></div></div><div class="sect1"><h2 id="_cloudflare_pages">Cloudflare pages</h2><div class="sectionbody"><div class="paragraph"><p>I was looking for a simple, free/cheap, robutst, and still powerful-enough static site hosting.</p></div><div class="paragraph"><p>I considered GitHub Pages but they are rather crude and don’t offer much options.
+In particular, I wanted to configure redirects for my old curiousprogrammer.net blog posts.</p></div><div class="paragraph"><p>I finally found <a href="https://pages.cloudflare.com/">Cloudflare Pages</a> and didn’t look further
+I already had a Cloudflare account because I’ve been using Cloudflare for a few of my domains
+so it was really quick to set it up and have a dev version of the blog up running.</p></div><div class="paragraph"><p>If you are interested,
+check their <a href="https://developers.cloudflare.com/pages/get-started">Get Started docs page</a>.</p></div></div></div><div class="sect1"><h2 id="_the_old_blogcontent">The old blog/content</h2><div class="sectionbody"><div class="paragraph"><p>You can find the old posts here: TODO</p></div></div></div>
 </div>
 
 <div id="post-tags">
     <br/> 
     <b>Tags: </b>
     
-    <a href="/tags-output/cryogen">cryogen</a>
+    <a href="/tags-output/Cryogen">Cryogen</a>
     
-    <a href="/tags-output/asciidoc">asciidoc</a>
+    <a href="/tags-output/AsciiDoc">AsciiDoc</a>
+    
+    <a href="/tags-output/Cloudflare">Cloudflare</a>
     
 </div>
 

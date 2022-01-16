@@ -2,7 +2,7 @@
 :date "2017-11-09"
 :title "LambdUp Functional Meetup in Prague"
 :layout :post
-:tags  ["fp" "conference"]
+:tags  ["functional-programming" "conference"]
 :toc :ul
 }
 

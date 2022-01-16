@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <!-- Website Template designed by www.downloadwebsitetemplates.co.uk -->
+    <!-- Modified to fit Cryogen.-->
+    <meta charset="UTF-8">
+    <title>Curious (Clojure) Programmer: PureBlog: A Simple Blog Implementation in Clojure for PurelyFunctional.tv</title>
+    
+<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,fp,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+
+<meta name="description" content="=Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv).
+It also was my first attempt to use Duct/Integrant micro-frameworks for building a real Clojure app.">
+
+<meta property="og:description" content="=Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv).
+It also was my first attempt to use Duct/Integrant micro-frameworks for building a real Clojure app.">
+
+<meta property="og:url" content="http://curiousprogrammer.net/posts/2018-05-11-pureblog-a-simple-blog-implementation-in-clojure-for-purelyfunctional-tv" />
+<meta property="og:title" content="PureBlog: A Simple Blog Implementation in Clojure for PurelyFunctional.tv" />
+<meta property="og:type" content="article" />
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <!--[if IE]><![endif]-->
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css" />
+    <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/typography.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow-night-eighties.min.css">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+
+<div id="left">
+
+    <p id="logo">
+        <a title="Curious (Clojure) Programmer" href="/">
+            <span class="fa fa-rocket"></span>
+            <span class="text">Nucleus</span>
+        </a>
+    </p>
+
+    <div id="menucont" class="bodycontainer clearfix">
+        <div class="menutitle">
+            <p><span class="fa fa-reorder"></span><strong>Menu</strong></p>
+        </div>
+        <ul class="menu">
+            <li ><a title="Home" href="/">Home</a></li>
+            <li ><a title="Archives" href="/archives">Archives</a></li>
+            
+            <li ><a title="Tags" href="/tags">Tags</a></li>
+            
+            
+            <li >
+                <a href="/pages/adoc-page">Adoc Page</a>
+            </li>
+            
+            <li><a title="RSS" href="/feed.xml">RSS</a></li>
+        </ul>
+    </div>
+
+    <div id="socialmedia" class="clearfix">
+        <ul>
+            <li><a title="GitHub" href="./" rel="external"><span class="fa fa-github"></span></a></li>
+            <li><a title="Stack Overflow" href="./" rel="external"><span class="fa fa-stack-overflow"></span></a></li>
+            <li><a title="Google+" href="./" rel="external"><span class="fa fa-google-plus"></span></a></li>
+            <li><a title="LinkedIn" href="./" rel="external"><span class="fa fa-linkedin"></span></a></li>
+            <li><a title="Last.fm" href="./" rel="external"><span class="fa fa-lastfm"></span></a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div id="right" class="clearfix">
+    
+<div id="post">
+    <div class="post-header">
+    <div id="post-meta" class="row">
+        <strong>May 11, 2018</strong>
+        
+    </div>
+    <h1>PureBlog: A Simple Blog Implementation in Clojure for PurelyFunctional.tv</h1>
+</div>
+<div>
+    <ul class="toc"><li><a href="#_introduction">Introduction</a></li><li><a href="#_pureblog_application">PureBlog Application</a></li><li><a href="#_code_review_summary">Code Review Summary</a></li><li><a href="#_conclusion">Conclusion</a></li><ul><li><a href="#_future">Future</a></li></ul></ul>
+    <div class="paragraph"><p>=</p></div><div class="paragraph"><p><em>Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv)</em>.
+<em>It also was my first attempt to use Duct/Integrant micro-frameworks for building a real Clojure app.</em></p></div><div class="sect1"><h2 id="_introduction">Introduction</h2><div class="sectionbody"><div class="paragraph"><p>I’m a subscriber of <a href="http://purelyfunctional.tv/">PurelyFunctional.tv</a> and I think it’s the best online resource for learning Clojure that is available out there.
+As part of the membership, Eric Normand (the man behind PurelyFunctional.tv) offers a free 30-min coaching session where you can discuss your Clojure learning strategy - issues, challenges, approaches, etc.</p></div><div class="paragraph"><p>A while ago, during my coaching call, I mentioned that feedback from a real Clojure expert is one of the most important things for learning and that I’d lacked this type of feedback during my Clojure learning journey.
+To my surprise, Eric immediately offered his help in reviewing my code.
+What a great opportunity!</p></div><div class="paragraph"><p>So we agreed upon creating a simple side-project - blog implementation in Clojure (Eric has a nice list of <a href="https://purelyfunctional.tv/functional-programming-career-guide/10-side-projects-resume/">10 Weekend projects to spruce up your functional resume</a> on his website).</p></div></div></div><div class="sect1"><h2 id="_pureblog_application">PureBlog Application</h2><div class="sectionbody"><div class="paragraph"><p>I decided to make it a bit harder and take this as an opportunity to learn a bit about <a href="https://github.com/duct-framework/duct">Duct</a> and <a href="https://github.com/weavejester/integrant">Integrant</a> and use them in a real application (instead of a usual <em>ring + compojure</em> combo).
+Although it took significantly longer than it could, it was fun and I’ve learned quite a bit about Duct and Integrant.</p></div></div></div><div class="sect1"><h2 id="_code_review_summary">Code Review Summary</h2><div class="sectionbody"><div class="paragraph"><p>Eric published his code review as <a href="https://www.youtube.com/watch?v=yQ-KjVNCe3g">Blog in Clojure Code Review</a> youtube video.</p></div><div class="paragraph"><p>Following is my summary of Eric’s review, but please, watch the full video to make your own conclusion.</p></div><div class="ulist"><ul><li><p>I definitely agree with the idea of moving the translation logic ("readable" functions) to the <em>db</em> namespace.</p></li><li><p><strong>The namespaced maps</strong>: Now I really think that they are an unnecessary clutter for such a simple CRUD app.
+Initially, I was inspired by <a href="http://blog.fogus.me/2017/02/10/clojure-spec-data-design-01-sketching-a-struct/">Fogus modeling a domain with namespaced maps</a> and some other people suggesting them.
+I guess they could be more useful in a richer domain model.
+I’m curious to hear if you ever use them and what other factors you take into account when making that decision.</p></li><li><p><strong>Separating protocol definitions</strong> and getting rid of some functions (<em>update-post</em> et al.) in features namespace is an interesting idea:</p><div class="ulist"><ul><li><p>I agree that protocol definitions should be separated from the db implementation</p></li><li><p>As regards to the removal of functions in features/posts.clj I think they still might have some value - perhaps, not right now.</p><div class="ulist"><ul><li><p>I was inspired by <a href="https://leanpub.com/clojurepolymorphism/">Paul Stadig’s Clojure Polymorphism</a> book where he frequently uses client namespace for protocol functions - maybe the benefits of doing so are not so obvious in my case but I’ll probably leave them there.
+The protocol itself could be moved to completely separate namespace (Paul uses "protocol.clj" for this purpose).
+Perhaps the protocol should be kept in <strong><em>boundary/db.clj</em></strong>, but the implementations moved to <strong><em>boundary/sql.clj</em></strong> or something similar.
+I admit that it may well be a bit of overengineering for the sake of this app, though.</p></li><li><p>I think that at least the <code>preview</code> function should probably be kept in "features" namespace as opposed to the db namespace.</p></li></ul></div></li></ul></div></li><li><p><strong>Using <em>select-keys</em> instead of <em>dissoc</em> in <em>update-post</em></strong> <strong>function</strong> is <em>probably</em> good advice.
+I couldn’t make up my mind which approach is better because I was worried that I’d have to change the <em>update-post</em> implementation every time I decide to add a new field to the post.
+I expect that (generally speaking) I’ll want to make new fields updatable and (hopefully) only the <em>user_id</em> and <em>created_date</em> will remain the ones that should not be updated (that is they are used only in <em>create-post</em> function).
+I guess there’s a bit of conflict because I try to reuse <em>readable-&gt;db-post</em> function for both <em>update-post</em> and <em>create-post</em> but there’s a small difference between them.
+Maybe  I could just duplicate the logic and move on.</p></li><li><p>calling <em>now()</em> twice &amp; <strong>using</strong> <strong><em>remove</em> instead of <em>(filter (complement …​)</em></strong> - nice catch!</p></li></ul></div></div></div><div class="sect1"><h2 id="_conclusion">Conclusion</h2><div class="sectionbody"><div class="paragraph"><p>You can find the source code in <a href="https://github.com/jumarko/pure-blog">pure-blog GitHub repo</a>.
+The version that Eric reviewed is tagged as <a href="https://github.com/jumarko/pure-blog/tree/mvp-1.0"><em>*mvp-1.0*</em></a><em>.</em> A read-only version of the PureBlog application is available at <a href="http://pureblog.curiousprogrammer.net:3000/" class="bare">http://pureblog.curiousprogrammer.net:3000/</a>.</p></div><div class="paragraph"><p>I’m happy to hear your comments and additional feedback!
+Feel free to comment on the <a href="https://github.com/jumarko/pure-blog/issues/1">Github issue <em>*Initial Feedback*</em></a>.</p></div><div class="sect2"><h3 id="_future">Future</h3><div class="paragraph"><p>I haven’t had time to move this project beyond the initial version but I do plan to do more work, implement Eric’s suggestions and add more features.
+However, this app isn’t intended to be really practical/useful;
+just "whimsical" :).</p></div><div class="paragraph"><p>Some more features/things I’d like to do in the future:</p></div><div class="ulist"><ul><li><p>Authentication and login</p><div class="ulist"><ul><li><p>It might include a proper user-registration process as well</p></li></ul></div></li><li><p>Markdown editor</p></li><li><p>Datomic as a persistence layer</p><div class="ulist"><ul><li><p>May be used for features like <em>Post edits history</em></p></li></ul></div></li><li><p>Tags &amp; Comments</p></li></ul></div></div></div></div>
+</div>
+
+<div id="post-tags">
+    <br/> 
+    <b>Tags: </b>
+    
+    <a href="/tags/clojure">clojure</a>
+    
+</div>
+
+<br/>
+
+    <div id="prev-next">
+        
+        <a class="button" href="/posts/2019-02-25-new-clojure-quips-screencast">&laquo; New Clojure Quips Screencast</a>
+        
+        
+        <a class="right button" href="/posts/2018-04-19-clojure-tip-of-the-day-clojure-concurrency">Clojure Tip of the Day - Clojure Concurrency &raquo;</a>
+        
+    </div>
+
+    
+
+
+</div>
+
+<hr/>
+<div id="footercont" class="clearfix">Copyright &copy; 2022 Juraj Martinka
+    <p>Powered by <a href="http://cryogenweb.org">Cryogen</a> | Free Website Template by <a title="free website templates" href="http://www.downloadwebsitetemplates.co.uk" rel="external">Download Website Templates</a></p>
+
+</div>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/scripts.js" type="application/javascript"></script>
+
+
+</body>
+</html>

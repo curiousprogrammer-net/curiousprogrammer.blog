@@ -1,0 +1,10 @@
+= GDG Jihlava - CodeScene talk
+:date: 2019-10-25
+
+I gave a talk at https://twitter.com/GDGJihlava[GDG Jihlava] yesterday about https://codescene.io[CodeScene], a unique behavioral code analysis tool that I'm grateful to work on.
+
+The talk was given in Slovak (full details are available at the https://www.meetup.com/gdgjihlava/events/265293406/[Meetup page]).
+
+Slides (English) uploaded here: https://curiousprogrammer.net/GdgJihlava-CodeScene.pdf
+
+You can find a list of all my talks on the *_https://curiousprogrammer.net/my-talks/[My Talks]_ https://curiousprogrammer.net/my-talks/[page]*.

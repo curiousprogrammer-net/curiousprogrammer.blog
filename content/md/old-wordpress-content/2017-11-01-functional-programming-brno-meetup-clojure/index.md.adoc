@@ -1,0 +1,92 @@
+= Functional Programming Brno Meetup: Clojure
+:date: 2017-11-01
+
+Last week, I gave a https://www.meetup.com/fpbrno/events/243877465/[talk about Clojure] at https://www.meetup.com/preview/fpbrno[Functional Programming Brno meetup].
+
+This was my first meetup talk and my first public Clojure presentation too.
+I'm very grateful for the experience.
+It was fun, and I met a couple of interesting people.
+
+== Organization
+
+https://www.kiwi.com[Kiwi.com] and especially Jiří Nečas helped a lot with meetup organization.
+They provided free beers and some food.
+It was a first-class experience - I truly appreciate everything they did.
+
+Also, all the attendees were very kind and patient with me.
+Big thank you to everyone, especially Tomáš Janoušek and the former organizer Matej Kollár.
+
+I hope to find more speakers for the next Functional Programming Brno meetups.
+If you have any experience with FP and would like to share it with us, please, https://www.meetup.com/members/75616542/[send me a message via Meetup.com.]
+
+== Presentation
+
+My presentation was based on a wonderful talk https://www.google.cz/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjBsqCP_JzXAhUD-6QKHSLRBuwQFggmMAA&url=https%3A%2F%2Fgithub.com%2Fstuarthalloway%2Fpresentations%2Fwiki%2FClojure-in-10-Big-Ideas&usg=AOvVaw2RuDTnbLJIpsoJ4UYvUoUZ[Clojure in 10 Big Ideas] by Stuart Halloway.
+I added a brief Clojure introduction at the beginning and some bits about Clojure in the real world at the end.
+I reduced the number of ideas to seven (leaving out core.async, protocols, and logic programming).
+
+The presentation focused on people unfamiliar with Clojure.
+I tried to cover quite a few concepts, and that's why it was so long (1h 45 min).
+In the future, I certainly need to make my talks shorter.
+
+I divided the talk into four parts:
+
+=== 1. https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/5[Clojure in Action]
+
+A very brief introduction to Clojure syntax using https://github.com/jumarko/presentations/blob/master/clojure-presentation/src/clojure_presentation/00_hello.clj[simple hello world] covering https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/6[basic function definition].
+
+=== 2. https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/7[Clojure Fundamentals]
+
+A quick tour of Clojure (dynamic, functional with an emphasis on immutability, LISP, hosted on the JVM, etc.).
+
+I also mentioned important Clojure ideas:
+
+* http://www.infoq.com/presentations/Simple-Made-Easy[Simplicity]
+* Separation of identity and state
+
+=== 3. https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/13[Clojure in 7 Big Ideas]
+
+The core of the presentation.
+https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/69[Seven ideas] selected from Stuart's 10 Big Ideas:
+
+. EDN
+. Persistent Data Structures
+. Sequences
+. Transducers
+. REPL
+. ClojureScript
+. Spec
+
+After each section, I demonstrated https://github.com/jumarko/presentations/tree/master/clojure-presentation/src/clojure_presentation[the examples] in REPL.
+Most of them were very basic.
+After the _Sequences_ section, I included bit longer demo: https://github.com/jumarko/presentations/blob/master/clojure-presentation/src/clojure_presentation/03_game_of_life.clj[Game of Life].
+I also demonstrated the https://github.com/jumarko/presentations/tree/master/game-of-life[Game of Life visualization in a browser] after the _ClojureScript_ part.
+
+=== 4. https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/72[Clojure in the Wild]
+
+A summary of tooling, "problems" with Clojure (e.g.
+error reporting), real-world Clojure usage, and community resources.
+
+I used the results of Clojure survey: http://blog.cognitect.com/blog/2017/1/31/state-of-clojure-2016-results[State of Clojure 2016 Results and Analysis].
+
+== Resources
+
+Slides, audio & video recordings are available:
+
+* Video (screen) recording: https://youtu.be/YeUOWaM_Gk8
+* Slides: https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/
+* Audio recording: https://soundcloud.com/fpbrno/fpbrno-clojure-presentation-oct-24-1809
+* Clojure samples from the presentation: https://github.com/jumarko/presentations/tree/master/clojure-presentation/src/clojure_presentation
+* Game of Life in ClojureScript: https://github.com/jumarko/presentations/tree/master/game-of-life
+
+Almost all the stuff presented at the meetup come from one of the following resources:
+
+* https://vimeo.com/223240720[*Stuart Halloway on Clojure in 10 Big Ideas*]
+* http://www.infoq.com/presentations/Simple-Made-Easy[Rich Hickey: Simple Made Easy]
+* https://www.slideshare.net/alexmiller/cracking-clojure[Alex Miller: Cracking Clojure]
+* https://www.youtube.com/watch?v=hr8RnTfijx0[Game of Life in Clojure] [in Czech]
+* https://clojure.org/
+* https://github.com/uswitch/transducers-workshop/blob/master/slides/01-xducers-intro.pdf[Transducers workshop] - uSwitch
+* https://www.youtube.com/watch?v=Uv9fyDTIPig[Clojure Pills Screencast: 017 the life and death of an s-expression]
+* https://www.youtube.com/watch?v=j-kj2qwJa_E[Bruce Hauman - Developing ClojureScript with Figwheel]
+* http://blog.cognitect.com/blog/2017/1/31/state-of-clojure-2016-results[State of Clojure 2016 Results and Analysis]

@@ -1,3 +1,13 @@
+# Pages
+/about/ /pages-output/about
+/my-talks/ /pages-output/my-talks
+/weekly-bits-pieces/ /pages-output/weekly-bits-pieces
+/book-summaries/ /pages-output/book-summaries
+/clojure-quips/ /pages-output/clojure-quips
+/clojure-tip-of-the-day-screencast/ /pages-output/clojure-tip-of-the-day-screencast
+# RSS feed
+/feed/ /feed.xml
+# Posts
 /2017/01/28/how-to-create-a-blog-to-boost-your-career /posts-output/2017-01-28-how-to-create-a-blog-to-boost-your-career
 /2017/01/31/why-do-i-want-to-learn-clojure-and-why-you-should-too /posts-output/2017-01-31-why-do-i-want-to-learn-clojure-and-why-you-should-too
 /2017/02/08/random-excepts-from-brno-clojure-meetup /posts-output/2017-02-08-random-excepts-from-brno-clojure-meetup
@@ -21,13 +31,14 @@
 /2019/02/25/new-clojure-quips-screencast /posts-output/2019-02-25-new-clojure-quips-screencast
 /2019/10/25/gdg-jihlava-codescene-talk /posts-output/2019-10-25-gdg-jihlava-codescene-talk
 /2020/04/27/going-forward-book-summaries-and-weekly-bits-pieces /posts-output/2020-04-27-going-forward-book-summaries-and-weekly-bits-pieces
+# Tags
 /category/clojure/ /tags-output/meetup
 /category/screencast/clojure-tip-of-the-day/ /tags-output/clojure-tip-of-the-day
 /category/clojurescript/ /tags-output/clojurescript
 /category/podcast/defn-podcast/ /tags-output/podcast
 /category/tools/ides-editors/emacscider/ /tags-output/ides-editors
 /category/fpbrno/ /tags-output/fpbrno
-/category/tools/ides-editors/ /tags-output/ides-editors
+/category/tools/ides-editors/ /tags-output/editors
 /category/learning/ /tags-output/learning
 /category/meetup/ /tags-output/meetup
 /category/my-bookshelf/ /tags-output/my-bookshelf
@@ -35,11 +46,5 @@
 /category/productivity/ /tags-output/productivity
 /category/screencast/ /tags-output/screencat
 /category/tools/ /tags-output/tools
+/category/emacscider/ /tags-output/emacs-cider
 /category/uncategorized/ /tags-output/misc
-/feed/ /feed.xml
-/about/ /pages-output/about
-/my-talks/ /pages-output/my-talks
-/weekly-bits-pieces/ /pages-output/weekly-bits-pieces
-/book-summaries/ /pages-output/book-summaries
-/clojure-quips/ /pages-output/clojure-quips
-/clojure-tip-of-the-day-screencast/ /pages-output/clojure-tip-of-the-day-screencast

@@ -1,1 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><atom:link href="http://curiousprogrammer.net/" rel="self" type="application/rss+xml"/><title>Curious (Clojure) Programmer</title><link>http://curiousprogrammer.net/</link><description>Simplicity matters</description><lastBuildDate>Sun, 16 Jan 2022 07:42:07 +0100</lastBuildDate><generator>clj-rss</generator></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><atom:link href="http://curiousprogrammer.net/" rel="self" type="application/rss+xml"/><title>Curious (Clojure) Programmer</title><link>http://curiousprogrammer.net/</link><description>Simplicity matters</description><lastBuildDate>Sun, 16 Jan 2022 12:18:54 +0100</lastBuildDate><generator>clj-rss</generator><item><guid>http://curiousprogrammer.net/posts-output/2022-01-12-moving-to-cryogen</guid><link>http://curiousprogrammer.net/posts-output/2022-01-12-moving-to-cryogen</link><title>Moving My Blog to Cryogen and Cloudflare Pages</title><description>The Wordpress problemI wanted to migrate away from the existing Wordpress-based hosting for
+my curiosprogrammer.net blog
+for a long time yet I have not found time to do that until now.
+Today, I’m finally moving towards much simpler approach using
+Cryogen as the underlying blog engine.CryogenCryogen is a simple blog engine written in Clojure.
+It’s used by a number of people in Clojure community, including Sean Corfield and Jakub Holy.I think it will well serve my needs
+and I hope that the friction for publishing posts
+(and the frustrations caused by Wordpress editor)
+is going to diminish.AsciiDocI’ve found a couple of AsciiDoc-related links in
+Jakub Holy’s article
+and decided to give it a try.
+The promise is that, unlike Markdown, it’s standardized, extensible and has richer formatting options.See:Why You Shouldn’t Use “Markdown” for DocumentationCompare AsciiDoc to MarkdownAsciiDoc Syntax Quick Reference</description><pubDate>Sun, 16 Jan 2022 00:00:00 +0100</pubDate></item></channel></rss>

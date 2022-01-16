@@ -1,0 +1,14 @@
+= New Clojure Quips Screencast
+:date: 2019-02-25
+
+It's been a while since I recorded the last https://curiousprogrammer.net/2018/04/19/clojure-tip-of-the-day-clojure-concurrency/[Clojure Tip of the Day episode].
+
+I've been thinking a lot about the possibilities how to evolve this further and have found that it's a really time-consuming effort and there are also other high-quality websites covering those sorts of topics (as an example, check out wonderful https://purelyfunctional.tv/courses/concurrency/[Clojure Concurrency course from PurelyFunctional.tv]).
+
+So I decided to switch my focus on something that I could consistently do on a semi-regular basis and that means really short videos focused on a single concept or a function from Clojure standard library or other interesting Clojure libraries and tools.
+
+Today, I'm announcing a weekly _*https://curiousprogrammer.net/clojure-quips/[Clojure Quips]*_ https://curiousprogrammer.net/clojure-quips/[screencast].
+
+The https://www.youtube.com/watch?v=rlucNAvwqg0&feature=youtu.be[first episode is already on YouTube].
+
+Enjoy!

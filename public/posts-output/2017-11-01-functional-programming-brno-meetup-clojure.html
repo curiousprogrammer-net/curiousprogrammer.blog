@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <!-- Website Template designed by www.downloadwebsitetemplates.co.uk -->
+    <!-- Modified to fit Cryogen.-->
+    <meta charset="UTF-8">
+    <title>Curious (Clojure) Programmer: Functional Programming Brno Meetup: Clojure</title>
+    
+<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,fp,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+
+<meta name="description" content="Last week, I gave a talk about Clojure at Functional Programming Brno meetup.This was my first meetup talk and my first public Clojure presentation too.
+I’m very grateful for the experience.
+It was fun, and I met a couple of interesting people.">
+
+<meta property="og:description" content="Last week, I gave a talk about Clojure at Functional Programming Brno meetup.This was my first meetup talk and my first public Clojure presentation too.
+I’m very grateful for the experience.
+It was fun, and I met a couple of interesting people.">
+
+<meta property="og:url" content="http://curiousprogrammer.net/posts-output/2017-11-01-functional-programming-brno-meetup-clojure" />
+<meta property="og:title" content="Functional Programming Brno Meetup: Clojure" />
+<meta property="og:type" content="article" />
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <!--[if IE]><![endif]-->
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css" />
+    <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/typography.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow-night-eighties.min.css">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+
+<div id="left">
+
+    <p id="logo">
+        <a title="Curious (Clojure) Programmer" href="/">
+            <span class="fa fa-rocket"></span>
+            <span class="text">Nucleus</span>
+        </a>
+    </p>
+
+    <div id="menucont" class="bodycontainer clearfix">
+        <div class="menutitle">
+            <p><span class="fa fa-reorder"></span><strong>Menu</strong></p>
+        </div>
+        <ul class="menu">
+            <li ><a title="Home" href="/">Home</a></li>
+            <li ><a title="Archives" href="/archives">Archives</a></li>
+            
+            <li ><a title="Tags" href="/tags">Tags</a></li>
+            
+            
+            <li >
+                <a href="/pages-output/adoc-page">Adoc Page</a>
+            </li>
+            
+            <li><a title="RSS" href="/feed.xml">RSS</a></li>
+        </ul>
+    </div>
+
+    <div id="socialmedia" class="clearfix">
+        <ul>
+            <li><a title="GitHub" href="./" rel="external"><span class="fa fa-github"></span></a></li>
+            <li><a title="Stack Overflow" href="./" rel="external"><span class="fa fa-stack-overflow"></span></a></li>
+            <li><a title="Google+" href="./" rel="external"><span class="fa fa-google-plus"></span></a></li>
+            <li><a title="LinkedIn" href="./" rel="external"><span class="fa fa-linkedin"></span></a></li>
+            <li><a title="Last.fm" href="./" rel="external"><span class="fa fa-lastfm"></span></a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div id="right" class="clearfix">
+    
+<div id="post">
+    <div class="post-header">
+    <div id="post-meta" class="row">
+        <strong>November 1, 2017</strong>
+        
+    </div>
+    <h1>Functional Programming Brno Meetup: Clojure</h1>
+</div>
+<div>
+    <ul class="toc"><li><a href="#_organization">Organization</a></li><li><a href="#_presentation">Presentation</a></li><ul><li><a href="#_1_clojure_in_action">1. <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/5">Clojure in Action</a></a></li><li><a href="#_2_clojure_fundamentals">2. <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/7">Clojure Fundamentals</a></a></li><li><a href="#_3_clojure_in_7_big_ideas">3. <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/13">Clojure in 7 Big Ideas</a></a></li><li><a href="#_4_clojure_in_the_wild">4. <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/72">Clojure in the Wild</a></a></li></ul><li><a href="#_resources">Resources</a></li></ul>
+    <div class="paragraph"><p>Last week, I gave a <a href="https://www.meetup.com/fpbrno/events/243877465/">talk about Clojure</a> at <a href="https://www.meetup.com/preview/fpbrno">Functional Programming Brno meetup</a>.</p></div><div class="paragraph"><p>This was my first meetup talk and my first public Clojure presentation too.
+I’m very grateful for the experience.
+It was fun, and I met a couple of interesting people.</p></div><div class="sect1"><h2 id="_organization">Organization</h2><div class="sectionbody"><div class="paragraph"><p><a href="https://www.kiwi.com">Kiwi.com</a> and especially Jiří Nečas helped a lot with meetup organization.
+They provided free beers and some food.
+It was a first-class experience - I truly appreciate everything they did.</p></div><div class="paragraph"><p>Also, all the attendees were very kind and patient with me.
+Big thank you to everyone, especially Tomáš Janoušek and the former organizer Matej Kollár.</p></div><div class="paragraph"><p>I hope to find more speakers for the next Functional Programming Brno meetups.
+If you have any experience with FP and would like to share it with us, please, <a href="https://www.meetup.com/members/75616542/">send me a message via Meetup.com.</a></p></div></div></div><div class="sect1"><h2 id="_presentation">Presentation</h2><div class="sectionbody"><div class="paragraph"><p>My presentation was based on a wonderful talk <a href="https://www.google.cz/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwjBsqCP_JzXAhUD-6QKHSLRBuwQFggmMAA&amp;url=https%3A%2F%2Fgithub.com%2Fstuarthalloway%2Fpresentations%2Fwiki%2FClojure-in-10-Big-Ideas&amp;usg=AOvVaw2RuDTnbLJIpsoJ4UYvUoUZ">Clojure in 10 Big Ideas</a> by Stuart Halloway.
+I added a brief Clojure introduction at the beginning and some bits about Clojure in the real world at the end.
+I reduced the number of ideas to seven (leaving out core.async, protocols, and logic programming).</p></div><div class="paragraph"><p>The presentation focused on people unfamiliar with Clojure.
+I tried to cover quite a few concepts, and that’s why it was so long (1h 45 min).
+In the future, I certainly need to make my talks shorter.</p></div><div class="paragraph"><p>I divided the talk into four parts:</p></div><div class="sect2"><h3 id="_1_clojure_in_action">1. <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/5">Clojure in Action</a></h3><div class="paragraph"><p>A very brief introduction to Clojure syntax using <a href="https://github.com/jumarko/presentations/blob/master/clojure-presentation/src/clojure_presentation/00_hello.clj">simple hello world</a> covering <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/6">basic function definition</a>.</p></div></div><div class="sect2"><h3 id="_2_clojure_fundamentals">2. <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/7">Clojure Fundamentals</a></h3><div class="paragraph"><p>A quick tour of Clojure (dynamic, functional with an emphasis on immutability, LISP, hosted on the JVM, etc.).</p></div><div class="paragraph"><p>I also mentioned important Clojure ideas:</p></div><div class="ulist"><ul><li><p><a href="http://www.infoq.com/presentations/Simple-Made-Easy">Simplicity</a></p></li><li><p>Separation of identity and state</p></li></ul></div></div><div class="sect2"><h3 id="_3_clojure_in_7_big_ideas">3. <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/13">Clojure in 7 Big Ideas</a></h3><div class="paragraph"><p>The core of the presentation.
+<a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/69">Seven ideas</a> selected from Stuart’s 10 Big Ideas:</p></div><div class="ulist"><ul><li><p>EDN</p></li><li><p>Persistent Data Structures</p></li><li><p>Sequences</p></li><li><p>Transducers</p></li><li><p>REPL</p></li><li><p>ClojureScript</p></li><li><p>Spec</p></li></ul></div><div class="paragraph"><p>After each section, I demonstrated <a href="https://github.com/jumarko/presentations/tree/master/clojure-presentation/src/clojure_presentation">the examples</a> in REPL.
+Most of them were very basic.
+After the <em>Sequences</em> section, I included bit longer demo: <a href="https://github.com/jumarko/presentations/blob/master/clojure-presentation/src/clojure_presentation/03_game_of_life.clj">Game of Life</a>.
+I also demonstrated the <a href="https://github.com/jumarko/presentations/tree/master/game-of-life">Game of Life visualization in a browser</a> after the <em>ClojureScript</em> part.</p></div></div><div class="sect2"><h3 id="_4_clojure_in_the_wild">4. <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/72">Clojure in the Wild</a></h3><div class="paragraph"><p>A summary of tooling, "problems" with Clojure (e.g.
+error reporting), real-world Clojure usage, and community resources.</p></div><div class="paragraph"><p>I used the results of Clojure survey: <a href="http://blog.cognitect.com/blog/2017/1/31/state-of-clojure-2016-results">State of Clojure 2016 Results and Analysis</a>.</p></div></div></div></div><div class="sect1"><h2 id="_resources">Resources</h2><div class="sectionbody"><div class="paragraph"><p>Slides, audio &amp; video recordings are available:</p></div><div class="ulist"><ul><li><p>Video (screen) recording: <a href="https://youtu.be/YeUOWaM_Gk8" class="bare">https://youtu.be/YeUOWaM_Gk8</a></p></li><li><p>Slides: <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/" class="bare">https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/</a></p></li><li><p>Audio recording: <a href="https://soundcloud.com/fpbrno/fpbrno-clojure-presentation-oct-24-1809" class="bare">https://soundcloud.com/fpbrno/fpbrno-clojure-presentation-oct-24-1809</a></p></li><li><p>Clojure samples from the presentation: <a href="https://github.com/jumarko/presentations/tree/master/clojure-presentation/src/clojure_presentation" class="bare">https://github.com/jumarko/presentations/tree/master/clojure-presentation/src/clojure_presentation</a></p></li><li><p>Game of Life in ClojureScript: <a href="https://github.com/jumarko/presentations/tree/master/game-of-life" class="bare">https://github.com/jumarko/presentations/tree/master/game-of-life</a></p></li></ul></div><div class="paragraph"><p>Almost all the stuff presented at the meetup come from one of the following resources:</p></div><div class="ulist"><ul><li><p><a href="https://vimeo.com/223240720"><strong>Stuart Halloway on Clojure in 10 Big Ideas</strong></a></p></li><li><p><a href="http://www.infoq.com/presentations/Simple-Made-Easy">Rich Hickey: Simple Made Easy</a></p></li><li><p><a href="https://www.slideshare.net/alexmiller/cracking-clojure">Alex Miller: Cracking Clojure</a></p></li><li><p><a href="https://www.youtube.com/watch?v=hr8RnTfijx0">Game of Life in Clojure</a> [in Czech]</p></li><li><p><a href="https://clojure.org/" class="bare">https://clojure.org/</a></p></li><li><p><a href="https://github.com/uswitch/transducers-workshop/blob/master/slides/01-xducers-intro.pdf">Transducers workshop</a> - uSwitch</p></li><li><p><a href="https://www.youtube.com/watch?v=Uv9fyDTIPig">Clojure Pills Screencast: 017 the life and death of an s-expression</a></p></li><li><p><a href="https://www.youtube.com/watch?v=j-kj2qwJa_E">Bruce Hauman - Developing ClojureScript with Figwheel</a></p></li><li><p><a href="http://blog.cognitect.com/blog/2017/1/31/state-of-clojure-2016-results">State of Clojure 2016 Results and Analysis</a></p></li></ul></div></div></div>
+</div>
+
+<div id="post-tags">
+    <br/> 
+    <b>Tags: </b>
+    
+    <a href="/tags-output/clojure">clojure</a>
+    
+    <a href="/tags-output/meetup">meetup</a>
+    
+    <a href="/tags-output/fp">fp</a>
+    
+</div>
+
+<br/>
+
+    <div id="prev-next">
+        
+        <a class="button" href="/posts-output/2017-11-05-introducing-clojure-tip-of-the-day-screencast">&laquo; Introducing Clojure Tip of the Day Screencast</a>
+        
+        
+        <a class="right button" href="/posts-output/2017-09-18-busy-clojure-developer-guide-to-podcasts">Busy (Clojure) Developer Guide to Podcasts &raquo;</a>
+        
+    </div>
+
+    
+
+
+</div>
+
+<hr/>
+<div id="footercont" class="clearfix">Copyright &copy; 2022 Juraj Martinka
+    <p>Powered by <a href="http://cryogenweb.org">Cryogen</a> | Free Website Template by <a title="free website templates" href="http://www.downloadwebsitetemplates.co.uk" rel="external">Download Website Templates</a></p>
+
+</div>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/scripts.js" type="application/javascript"></script>
+
+
+</body>
+</html>

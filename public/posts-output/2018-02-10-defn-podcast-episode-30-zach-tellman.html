@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <!-- Website Template designed by www.downloadwebsitetemplates.co.uk -->
+    <!-- Modified to fit Cryogen.-->
+    <meta charset="UTF-8">
+    <title>Curious (Clojure) Programmer: Defn Podcast Episode 30 - Zach Tellman</title>
+    
+<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,fp,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+
+<meta name="description" content="This is a summary of the defn podcast interview with Zach Tellman.It was a wonderful 30th episode of the defn podcast where they interviewed Zach Tellman.
+As is so often the case with Zach’s talks, it’s a great discussion full of insights.">
+
+<meta property="og:description" content="This is a summary of the defn podcast interview with Zach Tellman.It was a wonderful 30th episode of the defn podcast where they interviewed Zach Tellman.
+As is so often the case with Zach’s talks, it’s a great discussion full of insights.">
+
+<meta property="og:url" content="http://curiousprogrammer.net/posts-output/2018-02-10-defn-podcast-episode-30-zach-tellman" />
+<meta property="og:title" content="Defn Podcast Episode 30 - Zach Tellman" />
+<meta property="og:type" content="article" />
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <!--[if IE]><![endif]-->
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css" />
+    <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/typography.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow-night-eighties.min.css">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+
+<div id="left">
+
+    <p id="logo">
+        <a title="Curious (Clojure) Programmer" href="/">
+            <span class="fa fa-rocket"></span>
+            <span class="text">Nucleus</span>
+        </a>
+    </p>
+
+    <div id="menucont" class="bodycontainer clearfix">
+        <div class="menutitle">
+            <p><span class="fa fa-reorder"></span><strong>Menu</strong></p>
+        </div>
+        <ul class="menu">
+            <li ><a title="Home" href="/">Home</a></li>
+            <li ><a title="Archives" href="/archives">Archives</a></li>
+            
+            <li ><a title="Tags" href="/tags">Tags</a></li>
+            
+            
+            <li >
+                <a href="/pages-output/adoc-page">Adoc Page</a>
+            </li>
+            
+            <li><a title="RSS" href="/feed.xml">RSS</a></li>
+        </ul>
+    </div>
+
+    <div id="socialmedia" class="clearfix">
+        <ul>
+            <li><a title="GitHub" href="./" rel="external"><span class="fa fa-github"></span></a></li>
+            <li><a title="Stack Overflow" href="./" rel="external"><span class="fa fa-stack-overflow"></span></a></li>
+            <li><a title="Google+" href="./" rel="external"><span class="fa fa-google-plus"></span></a></li>
+            <li><a title="LinkedIn" href="./" rel="external"><span class="fa fa-linkedin"></span></a></li>
+            <li><a title="Last.fm" href="./" rel="external"><span class="fa fa-lastfm"></span></a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div id="right" class="clearfix">
+    
+<div id="post">
+    <div class="post-header">
+    <div id="post-meta" class="row">
+        <strong>February 10, 2018</strong>
+        
+    </div>
+    <h1>Defn Podcast Episode 30 - Zach Tellman</h1>
+</div>
+<div>
+    <ul class="toc"><li><a href="#_show_notes">Show notes</a></li></ul>
+    <div class="paragraph"><p><em>This is a summary of the defn podcast interview with Zach Tellman.</em></p></div><div class="paragraph"><p>It was a wonderful <a href="http://defn.audio/episodes/2018/01/27/zach-tellman.html">30th episode of the defn podcast</a> where they interviewed Zach Tellman.
+As is so often the case with Zach’s talks, it’s a great discussion full of insights.</p></div><div class="paragraph"><p>I usually take personal notes for many podcasts that I listen to (see <a href="https://curiousprogrammer.net/2017/09/18/busy-clojure-developer-guide-to-podcasts/">Busy (Clojure) Developer Guide to Podcasts</a>).
+The reasons are to help me remember more and sometimes be able to do a quick review without a need to re-listen the whole thing.</p></div><div class="paragraph"><p>Most of the podcasts that I listen to have only very brief show notes.
+And it’s very true for defn podcast too.
+Therefore, I decided to put together a somewhat longer version.
+Beware that these are my own interpretations and because I wrote them down while walking and listening they may also be slightly incorrect.
+I encourage you to listen to the whole episode, take your own notes and draw your conclusions.</p></div><div class="paragraph"><p>You can also expect more podcasts' summaries on this blog in the future.</p></div><div class="sect1"><h2 id="_show_notes">Show notes</h2><div class="sectionbody"><div class="ulist"><ul><li><p><strong><a href="http://elementsofclojure.com/">Elements of Clojure</a></strong></p><div class="ulist"><ul><li><p>This is Zach’s new self-published book that has already been available for some time.</p></li><li><p>There’s also a <a href="https://groups.google.com/forum/#!forum/elements-of-clojure">discussion forum</a> dedicated to the book.</p></li><li><p>He started the first serious work on this topic two years ago.</p></li><li><p>He didn’t anticipate how much work it would be and spent a lot of time reading many resources on the topic.</p></li></ul></div></li><li><p>Lot of code we (programmers) write is a <em>*throw-away code*</em></p><div class="ulist"><ul><li><p>More frequent in LISP community.</p></li><li><p>It’s okay many times.</p></li><li><p>Writing reusable code is hard.</p></li></ul></div></li><li><p><strong>Correctness &amp; proofs</strong></p><div class="ulist"><ul><li><p>1972 paper: <a href="https://link.springer.com/article/10.1007/BF00289507"><em>Proof of correctness of data representations</em></a></p></li><li><p>People should stop talking about software being correct and talk about software being <em>*self-consistent.*</em></p></li><li><p>The hardest problem is to write software that’s useful when it’s outside of its usual environment.</p></li></ul></div></li><li><p><strong>Dynamic vs.
+static typing</strong></p><div class="ulist"><ul><li><p>Having some dynamism at the edges of your system is useful.</p></li><li><p>The real world doesn’t have schemas.</p></li><li><p>Clojure’s unique feature is that it brings immutability into the ecosystem of dynamic languages.</p></li><li><p>Clojure is a very good language for writing glue between more "rigid" components in your system.
+Those components might be written in other, more static languages (often in the form of Java library used directly from Clojure).</p></li></ul></div></li><li><p><em>*nil*</em> <strong>handling</strong></p><div class="ulist"><ul><li><p>One thing that Zach considers less than ideal in Clojure is that you can end up with <em>*nil*</em> propagating through half of the code only to eventually fail with NPE</p></li><li><p>The usual idiom <em>(when fn-arg (do stuff))</em> is terrible</p></li><li><p>A lot of things in Clojure are designed to be concise.
+In some situations, it could be better to be explicit: e.g., requiring a default value for <em>clojure.core/get</em></p></li></ul></div></li><li><p><strong>Clojure concurrency features</strong></p><div class="ulist"><ul><li><p><em>Why STM hasn’t been as successful as expected</em></p><div class="ulist"><ul><li><p>STM makes things much more complicated (compared to a simple atom) while it gives us only small benefits (mostly under heavy contention).</p></li><li><p>We usually don’t write systems with that heavy concurrency - we instead scale them by distributing load over multiple machines.</p></li></ul></div></li><li><p><em>core.async</em> is mostly useful on the client side (ClojureScript)</p><div class="ulist"><ul><li><p>People often use it on the server side even if there’s no compelling reason to do so.</p></li></ul></div></li></ul></div></li><li><p><strong>Laziness</strong></p><div class="ulist"><ul><li><p>It can be tricky because there’s no clear distinction between data in the process and outside the process (file, network, etc.)</p><div class="ulist"><ul><li><p>Here’s further discussion about push &amp; pull concepts: <a href="https://groups.google.com/forum/#!msg/elements-of-clojure/qPd—​oNq7IU/vEXNtvsPAgAJ"><em>Question: Not able to understand function pull, push and transform</em></a></p></li></ul></div></li><li><p>If Rich had known about transducers before Clojure 1.0 release, he would have made the laziness much less a default option in Clojure.</p></li></ul></div></li><li><p><strong>Light Table</strong></p><div class="ulist"><ul><li><p>Venture capitalists aim at billion dollar businesses which is problematic for developer tools like Light Table - it’s a pretty decent editor but it’s not clear how much money this area can bring to investors</p></li><li><p>Light Table is a nice demonstration of <a href="https://www.youtube.com/watch?v=PUv66718DII">Bret Victor’s ideas</a></p></li></ul></div></li><li><p>The great aspect of American culture is that it allows you to fail in your business =&gt; it encourages experimentation.</p></li><li><p><strong>Zach’s history</strong></p><div class="ulist"><ul><li><p>He studied computer science at college.</p></li><li><p>He originally wanted to do games development, but later realized that it’s not for him.</p></li><li><p>He spent some time at C# shop - working on low-level Windows graphics stuff.</p></li><li><p>He joined Google for a short period of time</p></li><li><p>Eventually, he started working for Clojure startup and has been with Clojure ever since</p></li></ul></div></li><li><p>Zach’s successful open-source projects: <a href="https://github.com/ztellman/aleph"><em>*Aleph*</em></a> and <em><a href="https://github.com/ztellman/manifold"><strong>Manifold</strong></a></em></p></li><li><p><strong>Spec</strong></p><div class="ulist"><ul><li><p>Spec is perhaps the first addition to Clojure in the last five years that can really change the way how programmers think about the language.</p></li><li><p>Spec error reporting is rather weak, though</p><div class="ulist"><ul><li><p>Cognitect’s approach to leave this as an exercise to a reader is less than ideal.</p></li></ul></div></li><li><p>Spec is a clever technical solution to what is a fundamentally human problem.</p><div class="ulist"><ul><li><p>To have a really good human-readable error messages you’d have to have a possibility to specify error message generator with every spec.</p></li></ul></div></li></ul></div></li><li><p><em>Mean-time-to-accomplish-something</em> is an important criterion for new people starting with a programming language</p><div class="ulist"><ul><li><p>For Zach, Clojure has been great in this aspect because it allowed him to do rapid experiments with OpenGL library</p></li></ul></div></li><li><p><strong>Community has to step in</strong></p><div class="ulist"><ul><li><p>Start defining the best practices/libraries which should be used in the community.</p></li><li><p>One good example is <a href="https://github.com/ring-clojure/ring"><em>*ring*</em></a> library.</p></li><li><p><a href="https://clojuriststogether.org/" class="bare">https://clojuriststogether.org/</a> is a nice initiative.</p></li></ul></div></li></ul></div></div></div>
+</div>
+
+<div id="post-tags">
+    <br/> 
+    <b>Tags: </b>
+    
+    <a href="/tags-output/podcast">podcast</a>
+    
+    <a href="/tags-output/clojure">clojure</a>
+    
+</div>
+
+<br/>
+
+    <div id="prev-next">
+        
+        <a class="button" href="/posts-output/2018-02-15-defn-podcast-episode-30-bruce-hauman">&laquo; Defn Podcast Episode 30 – Bruce Hauman</a>
+        
+        
+        <a class="right button" href="/posts-output/2018-02-05-clojure-tip-of-the-day-episode-6-how-to">Clojure Tip of the Day – Episode 6: How To Reload Multimethod Definition &raquo;</a>
+        
+    </div>
+
+    
+
+
+</div>
+
+<hr/>
+<div id="footercont" class="clearfix">Copyright &copy; 2022 Juraj Martinka
+    <p>Powered by <a href="http://cryogenweb.org">Cryogen</a> | Free Website Template by <a title="free website templates" href="http://www.downloadwebsitetemplates.co.uk" rel="external">Download Website Templates</a></p>
+
+</div>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/scripts.js" type="application/javascript"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <!-- Website Template designed by www.downloadwebsitetemplates.co.uk -->
+    <!-- Modified to fit Cryogen.-->
+    <meta charset="UTF-8">
+    <title>Curious (Clojure) Programmer: Why do I want to learn Clojure and why you should too</title>
+    
+<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,fp,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+
+<meta name="description" content="Since 2010, I’ve been interested in functional programming and non-Java JVM languages, most notably Scala &amp; Groovy.However, whenever I tried to learn Scala, I ended up confused.
+I started with a passion, but the complexity of the language perplexed me.
+I love the ideas of Functional Programming:">
+
+<meta property="og:description" content="Since 2010, I’ve been interested in functional programming and non-Java JVM languages, most notably Scala &amp; Groovy.However, whenever I tried to learn Scala, I ended up confused.
+I started with a passion, but the complexity of the language perplexed me.
+I love the ideas of Functional Programming:">
+
+<meta property="og:url" content="http://curiousprogrammer.net/posts-output/2017-01-31-why-do-i-want-to-learn-clojure-and-why-you-should-too" />
+<meta property="og:title" content="Why do I want to learn Clojure and why you should too" />
+<meta property="og:type" content="article" />
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <!--[if IE]><![endif]-->
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css" />
+    <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/typography.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow-night-eighties.min.css">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+
+<div id="left">
+
+    <p id="logo">
+        <a title="Curious (Clojure) Programmer" href="/">
+            <span class="fa fa-rocket"></span>
+            <span class="text">Nucleus</span>
+        </a>
+    </p>
+
+    <div id="menucont" class="bodycontainer clearfix">
+        <div class="menutitle">
+            <p><span class="fa fa-reorder"></span><strong>Menu</strong></p>
+        </div>
+        <ul class="menu">
+            <li ><a title="Home" href="/">Home</a></li>
+            <li ><a title="Archives" href="/archives">Archives</a></li>
+            
+            <li ><a title="Tags" href="/tags">Tags</a></li>
+            
+            
+            <li >
+                <a href="/pages-output/adoc-page">Adoc Page</a>
+            </li>
+            
+            <li><a title="RSS" href="/feed.xml">RSS</a></li>
+        </ul>
+    </div>
+
+    <div id="socialmedia" class="clearfix">
+        <ul>
+            <li><a title="GitHub" href="./" rel="external"><span class="fa fa-github"></span></a></li>
+            <li><a title="Stack Overflow" href="./" rel="external"><span class="fa fa-stack-overflow"></span></a></li>
+            <li><a title="Google+" href="./" rel="external"><span class="fa fa-google-plus"></span></a></li>
+            <li><a title="LinkedIn" href="./" rel="external"><span class="fa fa-linkedin"></span></a></li>
+            <li><a title="Last.fm" href="./" rel="external"><span class="fa fa-lastfm"></span></a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div id="right" class="clearfix">
+    
+<div id="post">
+    <div class="post-header">
+    <div id="post-meta" class="row">
+        <strong>January 31, 2017</strong>
+        
+    </div>
+    <h1>Why do I want to learn Clojure and why you should too</h1>
+</div>
+<div>
+    <ul class="toc"><li><a href="#_my_way_to_clojure">My way to Clojure</a></li></ul>
+    <div class="paragraph"><p>Since 2010, I’ve been interested in functional programming and non-Java JVM languages, most notably Scala &amp; Groovy.</p></div><div class="paragraph"><p>However, whenever I tried to learn Scala, I ended up confused.
+I started with a passion, but the complexity of the language perplexed me.
+I love the ideas of Functional Programming:</p></div><div class="ulist"><ul><li><p>pure functions</p></li><li><p>avoiding mutable state</p></li><li><p>no side effects</p></li></ul></div><div class="paragraph"><p>But I’ve found it difficult to write clean code in Scala.
+I never really understood the language.
+I felt it was a way harder to learn it properly than it should be.</p></div><div class="paragraph"><p>On the other side, Groovy is easier to understand, but I can’t see much of value to justify using it in production.
+Sure, I’ve used it quite a lot for unit testing and even for some scripting, but I’ve never gotten much further.</p></div><div class="sect2"><h3 id="_my_way_to_clojure">My way to Clojure</h3><div class="paragraph"><p>Around 2013, I heard about Clojure and got interested.
+This was the first time I met a strange LISP-like language with all those braces.
+I read a chapter about Clojure in the book <a href="https://www.amazon.com/gp/product/1617290068/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1617290068&amp;linkCode=as2&amp;tag=jumarkocuriou-20&amp;linkId=cac7048d40d7bb15caf0ecd2952f5eff">The Well-Grounded Java Developer</a><span class="image"><img src="//ir-na.amazon-adsystem.com/e/ir?t=jumarkocuriou-20&amp;l=am2&amp;o=1&amp;a=1617290068" alt="ir?t=jumarkocuriou 20&amp;l=am2&amp;o=1&amp;a=1617290068" /></span>.
+At the beginning, I wasn’t very convinced that Clojure code is more beautiful or readable than Java code., but I was getting curious.</p></div><div class="paragraph"><p>From time to time, I read some article about Clojure, played a little bit with it and even watched some of <a href="https://www.infoq.com/presentations/Simple-Made-Easy">Rich Hickey’s talks</a>.
+I discovered fantastic and thriving <a href="https://clojure.org/community/resources">Clojure community</a> (<a href="http://clojurians.net/">Clojurians slack</a> is awesome).
+I bought a copy of <a href="https://www.amazon.com/gp/product/1617291412/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1617291412&amp;linkCode=as2&amp;tag=jumarkocuriou-20&amp;linkId=e4c19deee69f1348982d4249badf732b">The Joy of Clojure</a><span class="image"><img src="//ir-na.amazon-adsystem.com/e/ir?t=jumarkocuriou-20&amp;l=am2&amp;o=1&amp;a=1617291412" alt="ir?t=jumarkocuriou 20&amp;l=am2&amp;o=1&amp;a=1617291412" /></span>, started to read it - and failed eventually.
+I wasn’t prepared.</p></div><div class="paragraph"><p>For some reason, I still felt the growing need to explore and learn about this new world:</p></div><div class="ulist"><ul><li><p>Why is that everyone in Clojure community is so excited about the language?</p></li><li><p>Does it really bring fun to programming again?</p></li><li><p>What are these immutable data structures and why are they so useful?</p></li><li><p>What does it feel like to use a dynamic language on a large scale?</p></li><li><p>Can we indeed write a concurrent code in a less painful and a more reliable way?</p></li><li><p>How can I leverage the power of Macros?</p></li><li><p>What are the benefits of using (almost) the same language on backend and frontend?
+(Clojure vs.
+ClojureScript)</p></li><li><p>Are the big systems written in Clojure, in fact, so much more compact than their Java counterparts while still being readable and maintainable?</p></li></ul></div><div class="paragraph"><p><strong>This blog is my attempt to answer those questions.</strong></p></div></div>
+</div>
+
+<div id="post-tags">
+    <br/> 
+    <b>Tags: </b>
+    
+    <a href="/tags-output/learning">learning</a>
+    
+    <a href="/tags-output/clojure">clojure</a>
+    
+</div>
+
+<br/>
+
+    <div id="prev-next">
+        
+        <a class="button" href="/posts-output/2017-02-08-random-excepts-from-brno-clojure-meetup">&laquo; Random excerpts from Brno Clojure meetup</a>
+        
+        
+        <a class="right button" href="/posts-output/2017-01-28-how-to-create-a-blog-to-boost-your-career">How to Create a Blog To Boost Your Career &raquo;</a>
+        
+    </div>
+
+    
+
+
+</div>
+
+<hr/>
+<div id="footercont" class="clearfix">Copyright &copy; 2022 Juraj Martinka
+    <p>Powered by <a href="http://cryogenweb.org">Cryogen</a> | Free Website Template by <a title="free website templates" href="http://www.downloadwebsitetemplates.co.uk" rel="external">Download Website Templates</a></p>
+
+</div>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/scripts.js" type="application/javascript"></script>
+
+
+</body>
+</html>

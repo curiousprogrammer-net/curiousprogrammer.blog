@@ -9,7 +9,8 @@ pom.xml.asc
 .lein-repl-history
 .lein-plugins/
 .lein-failures
-/public/
+# don't ignore public folder because it's published via Cloudflare
+#/public/
 /themes/lotus/css/blog.css
 /themes/lotus/css/blog.css.map
 .cpcache/

@@ -2,7 +2,7 @@
 :date "2017-11-01"
 :title "Functional Programming Brno Meetup: Clojure"
 :layout :post
-:tags  ["clojure" "meetup" "fp"]
+:tags  ["clojure" "meetup" "functional-programming"]
 :toc :ul
 }
 

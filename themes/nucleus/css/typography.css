@@ -14,9 +14,11 @@ p {
     margin: 0 0 20px 0;
 }
 
-/* Increase spacing between paragraphs */
+/* Increase spacing between paragraphs.
+   Do not use bottom margin because that also adds extra margin above the first elements in lists.
+   Use top margin instead.*/
 .paragraph {
-  margin: 0 0 20px;
+  margin: 20px 0 0 0;
 }
 
 strong, b {
@@ -69,7 +71,7 @@ h4, h5, h6 {
 }
 
 ul {
-    margin: 0 0 20px 35px;
+    margin: 0 0 0px 35px;
     list-style-type: square;
 }
 

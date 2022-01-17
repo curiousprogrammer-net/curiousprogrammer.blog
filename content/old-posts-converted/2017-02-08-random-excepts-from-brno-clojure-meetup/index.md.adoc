@@ -2,8 +2,9 @@
 :title "Random excerpts from Brno Clojure meetup"
 :layout :post
 :tags  ["cryogen" "asciidoc"]
-:toc :ul
 }
+
+:toc:
 
 == Meetup notes
 

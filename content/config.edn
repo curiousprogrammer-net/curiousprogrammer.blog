@@ -18,8 +18,7 @@
  :archive-group-format         "yyyy MMMM"
  :sass-src                     []
  :sass-path                    "sass"
- ;; "nucleus" is weird (like little space between paragraphs) => DO NOT USE IT
- :theme                        "blue";; "nucleus"
+ :theme                        "nucleus"
  ;; Cloudflare requires the _redirects file to be in the build output folder
  :resources                    ["img" "content" "_redirects"]
  :keep-files                   [".git"]

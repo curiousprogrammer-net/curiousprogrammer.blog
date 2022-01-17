@@ -3,8 +3,9 @@
 :title "Introducing Clojure Tip of the Day Screencast"
 :layout :post
 :tags  ["clojure" "clojure-tip-of-the-day" "podcast"]
-:toc :ul
 }
+
+:toc:
 
 I've started a new Clojure screencast Clojure Tip of the Day.
 It's going to be a collection of short (~5 min) videos covering various Clojure tips, tools, and techniques.

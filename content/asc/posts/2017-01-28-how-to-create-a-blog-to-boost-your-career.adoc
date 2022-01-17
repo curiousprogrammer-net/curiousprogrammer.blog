@@ -3,8 +3,9 @@
 :title "How to Create a Blog To Boost Your Career"
 :layout :post
 :tags  ["misc"]
-:toc :ul
 }
+
+:toc:
 
 Here I am, finally writing the first blog post for my new blog.
 I've managed to sit down and http://lifehacker.com/5972825/inspiration-is-for-amateurs--the-rest-of-us-just-show-up-and-get-to-work[do the hard work - without any excuses].

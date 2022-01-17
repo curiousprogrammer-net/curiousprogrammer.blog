@@ -3,8 +3,9 @@
 :title "Why do I want to learn Clojure and why you should too"
 :layout :post
 :tags  ["clojure" "learning"]
-:toc :ul
 }
+
+:toc:
 
 Since 2010, I've been interested in functional programming and non-Java JVM languages, most notably Scala & Groovy.
 

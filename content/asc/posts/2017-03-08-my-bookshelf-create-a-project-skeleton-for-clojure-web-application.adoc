@@ -3,8 +3,9 @@
 :title "My Bookshelf: Create a Project Skeleton for Clojure Web Application"
 :layout :post
 :tags  ["clojure" "learning" "my-bookshelf"]
-:toc :ul
 }
+
+:toc:
 
 _In the https://curiousprogrammer.net/2017/02/15/my-clojure-learning-strategy/[last post], I discussed my Clojure learning strategy in general and introduced my new hobby project My Bookshelf._
 

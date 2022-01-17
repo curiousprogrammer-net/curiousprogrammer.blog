@@ -3,8 +3,9 @@
 :title "Clojure Development Workflow with Spacemacs and CIDER"
 :layout :post
 :tags  ["clojure" "emacs" "emacs-cider" "spacemacs" "editors"]
-:toc :ul
 }
+
+:toc:
 
 _This is a follow-up to my previous post https://curiousprogrammer.net/2017/03/21/whats-the-best-clojure-ide/[What's the Best Clojure IDE?] I'll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools._
 

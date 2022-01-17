@@ -3,8 +3,9 @@
 :title "PureBlog: A Simple Blog Implementation in Clojure for PurelyFunctional.tv"
 :layout :post
 :tags  ["clojure"]
-:toc :ul}
-= 
+}
+
+:toc:
 
 _Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv)_.
 _It also was my first attempt to use Duct/Integrant micro-frameworks for building a real Clojure app._

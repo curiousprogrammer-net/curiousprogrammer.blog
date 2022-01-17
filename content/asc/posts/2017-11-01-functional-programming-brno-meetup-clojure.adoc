@@ -3,8 +3,9 @@
 :title "Functional Programming Brno Meetup: Clojure"
 :layout :post
 :tags  ["clojure" "meetup" "functional-programming"]
-:toc :ul
 }
+
+:toc:
 
 Last week, I gave a https://www.meetup.com/fpbrno/events/243877465/[talk about Clojure] at https://www.meetup.com/preview/fpbrno[Functional Programming Brno meetup].
 

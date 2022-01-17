@@ -3,8 +3,9 @@
 :title "Defn Podcast Episode 30 - Zach Tellman"
 :layout :post
 :tags  ["podcast" "clojure"]
-:toc :ul
 }
+
+:toc:
 
 _This is a summary of the defn podcast interview with Zach Tellman._
 

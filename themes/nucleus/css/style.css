@@ -195,8 +195,11 @@ img.imgfull {
     padding: 40px 50px 40px 320px;
 }
 
+/* Using the default bottom margin 20px makes makes nested lists ugly
+   because there's an extra vertical space.
+   Therefore we use zero here: */
 #right p {
-    margin: 0 0 20px 0;
+    margin: 0 0 0 0;
 }
 
 #right p:last-child {

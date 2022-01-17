@@ -9,13 +9,11 @@
     <meta charset="UTF-8">
     <title>Curious (Clojure) Programmer: Defn Podcast Episode 30 – Bruce Hauman</title>
     
-<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+<meta name="keywords" content="podcast,wordpress,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
 
-<meta name="description" content="This is a summary of the defn podcast interview with Bruce Hauman.Once again, it’s been a great and long episode where Ray and Vijay talked to Bruce Hauman.
-You’ll find my notes below.">
+<meta name="description" content="This is a summary of the defn podcast interview with Bruce Hauman.">
 
-<meta property="og:description" content="This is a summary of the defn podcast interview with Bruce Hauman.Once again, it’s been a great and long episode where Ray and Vijay talked to Bruce Hauman.
-You’ll find my notes below.">
+<meta property="og:description" content="This is a summary of the defn podcast interview with Bruce Hauman.">
 
 <meta property="og:url" content="http://curiousprogrammer.net/posts/2018-02-15-defn-podcast-episode-30-bruce-hauman" />
 <meta property="og:title" content="Defn Podcast Episode 30 – Bruce Hauman" />
@@ -60,7 +58,19 @@ You’ll find my notes below.">
             
             
             <li >
-                <a href="/pages/adoc-page">Adoc Page</a>
+                <a href="/pages/about">About</a>
+            </li>
+            
+            <li >
+                <a href="/pages/my-talks">My Talks</a>
+            </li>
+            
+            <li >
+                <a href="/pages/weekly-bits-pieces">Weekly Bits &amp; Pieces</a>
+            </li>
+            
+            <li >
+                <a href="/pages/clojure-tip-of-the-day-screencast">Clojure Tip of the Day Screencast</a>
             </li>
             
             <li><a title="RSS" href="/feed.xml">RSS</a></li>
@@ -90,8 +100,8 @@ You’ll find my notes below.">
     <h1>Defn Podcast Episode 30 – Bruce Hauman</h1>
 </div>
 <div>
-    <ul class="toc"><li><a href="#_summary"><strong>Summary</strong></a></li></ul>
-    <div class="paragraph"><p><em>This is a summary of the defn podcast interview with Bruce Hauman.</em></p></div><div class="paragraph"><p>Once again, it’s been a <a href="https://defn.audio/episodes/2018/02/10/bruce-hauman.html">great and long episode</a> where Ray and Vijay talked to <a href="https://github.com/bhauman">Bruce Hauman</a>.
+    
+    <div id="toc" class="toc"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_summary"><strong>Summary</strong></a></li></ul></div><div class="paragraph"><p><em>This is a summary of the defn podcast interview with Bruce Hauman.</em></p></div><div class="paragraph"><p>Once again, it’s been a <a href="https://defn.audio/episodes/2018/02/10/bruce-hauman.html">great and long episode</a> where Ray and Vijay talked to <a href="https://github.com/bhauman">Bruce Hauman</a>.
 You’ll find my notes below.</p></div><div class="paragraph"><p>These are my notes to help me quickly review the key information.
 I might have misinterpreted something.
 I encourage you to listen to the <a href="https://defn.audio/episodes/2018/02/10/bruce-hauman.html">full episode</a>.</p></div><div class="sect1"><h2 id="_summary"><strong>Summary</strong></h2><div class="sectionbody"><div class="ulist"><ul><li><p>Name <em>Hauman</em> has German origin.</p></li><li><p><strong>How he got to Clojure and Figwheel</strong></p><div class="ulist"><ul><li><p>He likes languages, parsing et al.</p></li><li><p>He has always had a passion for LISP - he was LISPer for a long time (since college).</p></li><li><p>In the real world, you work with Ruby, PHP, Java, etc.</p><div class="ulist"><ul><li><p>As a result, he got sick and started to play with ClojureScript - there were quite a few rough edges and thus he created <a href="https://github.com/bhauman/lein-figwheel">Figwheel</a>.</p></li></ul></div></li><li><p>Now Bruce lives in a typical apartment in Montreal.</p><div class="ulist"><ul><li><p>See his talk <a href="https://youtu.be/j-kj2qwJa_E?t=557">Developing ClojureScript With Figwheel</a> with the picture of his former "plastic bubble" house :).</p></li></ul></div></li><li><p>ClojureScript doesn’t "encapsulate" functions and modules.</p><div class="ulist"><ul><li><p>You can just load the file, and all your definitions are reloaded =&gt; very easy.</p></li><li><p>If you want to do stateful stuff like <a href="https://threejs.org/" class="bare">https://threejs.org/</a> it becomes problematic =&gt; you can turn auto-loading on and off with Figwheel.</p></li></ul></div></li><li><p>Using Figwheel with Node.js is different.</p><div class="ulist"><ul><li><p>You have no display and feedback is less visible.</p></li></ul></div></li></ul></div></li><li><p>Joke: <em>he’s not a real programmer, he just build cool demos that make people think.</em></p><div class="ulist"><ul><li><p>Figwheel is quite complicated real application written in Clojure.</p></li></ul></div></li><li><p>He recently built some application with Clojure and Ethereum - that was a really cool experience.</p></li><li><p><strong>Clojure as a strange maximum</strong></p><div class="ulist"><ul><li><p>He doesn’t see himself gravitating to other languages (although he loves languages a lot).</p></li><li><p>In terms of getting things done, he sees little benefits in using other languages.</p></li></ul></div></li><li><p><strong>Static types</strong></p><div class="ulist"><ul><li><p>The static guys are overblowing guarantee they’re getting from types - in real-world complex systems with lots of state (think "Microservices") the benefits are diminished.</p></li><li><p>In Clojure we are very productive - look at <a href="https://github.com/bhauman/advent-of-clojure">Advent of Code</a> and compare Clojure solutions to other languages.</p></li><li><p>Ray: certain types of functions would benefit from types but exploring external resources and APIs/data is much easier without types ceremony.</p></li><li><p>Racket, gradual typing, etc.

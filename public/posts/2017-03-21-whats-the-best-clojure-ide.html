@@ -9,11 +9,11 @@
     <meta charset="UTF-8">
     <title>Curious (Clojure) Programmer: What&#39;s the Best Clojure IDE?</title>
     
-<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+<meta name="keywords" content="podcast,wordpress,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
 
-<meta name="description" content="In this article, I’ll evaluate the Emacs, Cursive, and Spacemacs_, and explain why I ended up with_ Spacemacs for most of the projects I’m currently working on.UPDATE: Check also my next blog post Clojure Development Workflow with Spacemacs and Cider with the accompanying video.">
+<meta name="description" content="In this article, I’ll evaluate the Emacs, Cursive, and Spacemacs_, and explain why I ended up with_ Spacemacs for most of the projects I’m currently working on.">
 
-<meta property="og:description" content="In this article, I’ll evaluate the Emacs, Cursive, and Spacemacs_, and explain why I ended up with_ Spacemacs for most of the projects I’m currently working on.UPDATE: Check also my next blog post Clojure Development Workflow with Spacemacs and Cider with the accompanying video.">
+<meta property="og:description" content="In this article, I’ll evaluate the Emacs, Cursive, and Spacemacs_, and explain why I ended up with_ Spacemacs for most of the projects I’m currently working on.">
 
 <meta property="og:url" content="http://curiousprogrammer.net/posts/2017-03-21-whats-the-best-clojure-ide" />
 <meta property="og:title" content="What&#39;s the Best Clojure IDE?" />
@@ -58,7 +58,19 @@
             
             
             <li >
-                <a href="/pages/adoc-page">Adoc Page</a>
+                <a href="/pages/about">About</a>
+            </li>
+            
+            <li >
+                <a href="/pages/my-talks">My Talks</a>
+            </li>
+            
+            <li >
+                <a href="/pages/weekly-bits-pieces">Weekly Bits &amp; Pieces</a>
+            </li>
+            
+            <li >
+                <a href="/pages/clojure-tip-of-the-day-screencast">Clojure Tip of the Day Screencast</a>
             </li>
             
             <li><a title="RSS" href="/feed.xml">RSS</a></li>
@@ -88,8 +100,8 @@
     <h1>What&#39;s the Best Clojure IDE?</h1>
 </div>
 <div>
-    <ul class="toc"><li><a href="#_my_tour_through_the_clojure_ides_country">My Tour Through the Clojure IDEs' Country</a></li><ul><li><a href="#_emacs_live">Emacs LIVE</a></li><li><a href="#_cursive">Cursive</a></li><li><a href="#_emacs_from_the_scratch">Emacs - From the Scratch</a></li></ul><li><a href="#_spacemacs_to_the_rescue">Spacemacs to the Rescue</a></li><ul><li><a href="#_getting_started_with_spacemacs">Getting Started with Spacemacs</a></li><li><a href="#_my_spacemacs_configuration">My Spacemacs Configuration</a></li><li><a href="#_cider">CIDER</a></li><li><a href="#_layouts">Layouts</a></li></ul><li><a href="#_final_thoughts">Final Thoughts</a></li><ul><li><a href="#_how_about_the_atom_proto_repl">How About the Atom + Proto REPL?</a></li><li><a href="#_resources">Resources</a></li></ul></ul>
-    <div class="paragraph"><p><em>In this article, I’ll evaluate the Emacs, Cursive, and</em> Spacemacs_, and explain why I ended up with_ Spacemacs <em>for most of the projects I’m currently working on.</em></p></div><div class="paragraph"><p><strong>UPDATE</strong>: Check also my next blog post <a href="https://curiousprogrammer.net/2017/05/12/clojure-development-workflow-with-spacemacs-and-cider/">Clojure Development Workflow with Spacemacs and Cider</a> with the <a href="https://www.youtube.com/watch?v=4ecC3jqHooc">accompanying video</a>.</p></div><div class="paragraph"><p>It’s been a while since I started coding in Clojure, but the "IDE dilemma" was there from the beginning.
+    
+    <div id="toc" class="toc"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_my_tour_through_the_clojure_ides_country">My Tour Through the Clojure IDEs' Country</a><ul class="sectlevel2"><li><a href="#_emacs_live">Emacs LIVE</a></li><li><a href="#_cursive">Cursive</a></li><li><a href="#_emacs_from_the_scratch">Emacs - From the Scratch</a></li></ul></li><li><a href="#_spacemacs_to_the_rescue">Spacemacs to the Rescue</a><ul class="sectlevel2"><li><a href="#_getting_started_with_spacemacs">Getting Started with Spacemacs</a></li><li><a href="#_my_spacemacs_configuration">My Spacemacs Configuration</a></li><li><a href="#_cider">CIDER</a></li><li><a href="#_layouts">Layouts</a></li></ul></li><li><a href="#_final_thoughts">Final Thoughts</a><ul class="sectlevel2"><li><a href="#_how_about_the_atom_proto_repl">How About the Atom + Proto REPL?</a></li><li><a href="#_resources">Resources</a></li></ul></li></ul></div><div class="paragraph"><p><em>In this article, I’ll evaluate the Emacs, Cursive, and</em> Spacemacs_, and explain why I ended up with_ Spacemacs <em>for most of the projects I’m currently working on.</em></p></div><div class="paragraph"><p><strong>UPDATE</strong>: Check also my next blog post <a href="https://curiousprogrammer.net/2017/05/12/clojure-development-workflow-with-spacemacs-and-cider/">Clojure Development Workflow with Spacemacs and Cider</a> with the <a href="https://www.youtube.com/watch?v=4ecC3jqHooc">accompanying video</a>.</p></div><div class="paragraph"><p>It’s been a while since I started coding in Clojure, but the "IDE dilemma" was there from the beginning.
 Although some people might think that it’s a waste of time and you can just pick any editor you want, I disagree.
 There’s definitely a big difference in terms of productivity if you can use the best tool for the job.</p></div><div class="sect1"><h2 id="_my_tour_through_the_clojure_ides_country">My Tour Through the Clojure IDEs' Country</h2><div class="sectionbody"><div class="sect2"><h3 id="_emacs_live">Emacs LIVE</h3><div class="paragraph"><p>In the beginning, I did a quick research and found out that many people in Clojure community use Emacs.</p></div><div class="paragraph"><p>I had never really used Emacs.
 However, I found one particular Emacs incarnation, <a href="http://overtone.github.io/emacs-live/">Emacs LIVE</a>, specially crafted for beginners.

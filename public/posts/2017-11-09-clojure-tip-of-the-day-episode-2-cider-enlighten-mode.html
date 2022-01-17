@@ -9,11 +9,11 @@
     <meta charset="UTF-8">
     <title>Curious (Clojure) Programmer: Clojure Tip of the Day - Episode 2: Cider Enlighten Mode</title>
     
-<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+<meta name="keywords" content="podcast,wordpress,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
 
-<meta name="description" content="The new episode of my Clojure Tip of the Day screencast is out.You can find the video on YouTube: https://youtu.be/tCu2AewBTR4">
+<meta name="description" content="The new episode of my Clojure Tip of the Day screencast is out.">
 
-<meta property="og:description" content="The new episode of my Clojure Tip of the Day screencast is out.You can find the video on YouTube: https://youtu.be/tCu2AewBTR4">
+<meta property="og:description" content="The new episode of my Clojure Tip of the Day screencast is out.">
 
 <meta property="og:url" content="http://curiousprogrammer.net/posts/2017-11-09-clojure-tip-of-the-day-episode-2-cider-enlighten-mode" />
 <meta property="og:title" content="Clojure Tip of the Day - Episode 2: Cider Enlighten Mode" />
@@ -58,7 +58,19 @@
             
             
             <li >
-                <a href="/pages/adoc-page">Adoc Page</a>
+                <a href="/pages/about">About</a>
+            </li>
+            
+            <li >
+                <a href="/pages/my-talks">My Talks</a>
+            </li>
+            
+            <li >
+                <a href="/pages/weekly-bits-pieces">Weekly Bits &amp; Pieces</a>
+            </li>
+            
+            <li >
+                <a href="/pages/clojure-tip-of-the-day-screencast">Clojure Tip of the Day Screencast</a>
             </li>
             
             <li><a title="RSS" href="/feed.xml">RSS</a></li>
@@ -88,8 +100,8 @@
     <h1>Clojure Tip of the Day - Episode 2: Cider Enlighten Mode</h1>
 </div>
 <div>
-    <ul class="toc"><li><a href="#_cider_implementation_details"><strong>Cider implementation details</strong>:</a></li></ul>
-    <div class="paragraph"><p>The new episode of my <a href="https://curiousprogrammer.net/clojure-tip-of-the-day-screencast/">Clojure Tip of the Day</a> screencast is out.</p></div><div class="paragraph"><p>You can find the video on YouTube: <a href="https://youtu.be/tCu2AewBTR4" class="bare">https://youtu.be/tCu2AewBTR4</a></p></div><div class="paragraph"><p>The episode covers the <a href="https://cider.readthedocs.io/en/latest/miscellaneous_features/#enlighten-display-local-values">cider-enlighten-mode</a>.
+    
+    <div id="toc" class="toc"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_cider_implementation_details"><strong>Cider implementation details</strong>:</a></li></ul></div><div class="paragraph"><p>The new episode of my <a href="https://curiousprogrammer.net/clojure-tip-of-the-day-screencast/">Clojure Tip of the Day</a> screencast is out.</p></div><div class="paragraph"><p>You can find the video on YouTube: <a href="https://youtu.be/tCu2AewBTR4" class="bare">https://youtu.be/tCu2AewBTR4</a></p></div><div class="paragraph"><p>The episode covers the <a href="https://cider.readthedocs.io/en/latest/miscellaneous_features/#enlighten-display-local-values">cider-enlighten-mode</a>.
 This mode can be used to quickly show values of local symbols and return values of functions in real time.
 Unfortunately, the feature is <a href="https://github.com/clojure-emacs/cider/blob/master/doc/caveats.md">not available in ClojureScript buffers</a>.</p></div><div class="paragraph"><p>Notice, that unlike for <a href="http://cider.readthedocs.io/en/latest/debugging/">cider-debugger</a> <em>(cider-debug-print-length</em> and <em>cider-debug-print-level_</em>),_ there’s no option to customize the <em>print-length</em> for the enlighten mode (see <em>Cider implementation details</em> below).</p></div><div class="sect1"><h2 id="_cider_implementation_details"><strong>Cider implementation details</strong>:</h2><div class="sectionbody"><div class="ulist"><ul><li><p>main function handling enlighten mode: <a href="https://github.com/clojure-emacs/cider/blob/ba66d222a8ce4c1b1b2f5ced3ce8143334ceae1e/cider-debug.el#L646"><em>cider—​handle-enligthen</em></a></p></li><li><p><a href="https://github.com/clojure-emacs/cider-nrepl/blob/master/src/cider/nrepl/middleware/enlighten.clj#L13">hardcoded limit</a> (<strong>print-length</strong> 3) in cider-nrepl</p></li><li><p><a href="https://github.com/clojure-emacs/cider/pull/1545">Pull Request #1545</a> that introduced the cider-enlighten-mode</p></li></ul></div></div></div>
 </div>

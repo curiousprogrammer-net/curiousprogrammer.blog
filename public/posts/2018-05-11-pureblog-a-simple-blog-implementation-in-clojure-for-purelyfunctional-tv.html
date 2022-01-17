@@ -9,12 +9,12 @@
     <meta charset="UTF-8">
     <title>Curious (Clojure) Programmer: PureBlog: A Simple Blog Implementation in Clojure for PurelyFunctional.tv</title>
     
-<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+<meta name="keywords" content="podcast,wordpress,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
 
-<meta name="description" content="=Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv).
+<meta name="description" content="Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv).
 It also was my first attempt to use Duct/Integrant micro-frameworks for building a real Clojure app.">
 
-<meta property="og:description" content="=Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv).
+<meta property="og:description" content="Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv).
 It also was my first attempt to use Duct/Integrant micro-frameworks for building a real Clojure app.">
 
 <meta property="og:url" content="http://curiousprogrammer.net/posts/2018-05-11-pureblog-a-simple-blog-implementation-in-clojure-for-purelyfunctional-tv" />
@@ -60,7 +60,19 @@ It also was my first attempt to use Duct/Integrant micro-frameworks for building
             
             
             <li >
-                <a href="/pages/adoc-page">Adoc Page</a>
+                <a href="/pages/about">About</a>
+            </li>
+            
+            <li >
+                <a href="/pages/my-talks">My Talks</a>
+            </li>
+            
+            <li >
+                <a href="/pages/weekly-bits-pieces">Weekly Bits &amp; Pieces</a>
+            </li>
+            
+            <li >
+                <a href="/pages/clojure-tip-of-the-day-screencast">Clojure Tip of the Day Screencast</a>
             </li>
             
             <li><a title="RSS" href="/feed.xml">RSS</a></li>
@@ -90,8 +102,8 @@ It also was my first attempt to use Duct/Integrant micro-frameworks for building
     <h1>PureBlog: A Simple Blog Implementation in Clojure for PurelyFunctional.tv</h1>
 </div>
 <div>
-    <ul class="toc"><li><a href="#_introduction">Introduction</a></li><li><a href="#_pureblog_application">PureBlog Application</a></li><li><a href="#_code_review_summary">Code Review Summary</a></li><li><a href="#_conclusion">Conclusion</a></li><ul><li><a href="#_future">Future</a></li></ul></ul>
-    <div class="paragraph"><p>=</p></div><div class="paragraph"><p><em>Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv)</em>.
+    
+    <div id="toc" class="toc"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_introduction">Introduction</a></li><li><a href="#_pureblog_application">PureBlog Application</a></li><li><a href="#_code_review_summary">Code Review Summary</a></li><li><a href="#_conclusion">Conclusion</a><ul class="sectlevel2"><li><a href="#_future">Future</a></li></ul></li></ul></div><div class="paragraph"><p><em>Discussing the first draft of my new hobby app PureBlog implemented for the purpose of getting some practice and feedback from Eric Normand (PurelyFunctional.tv)</em>.
 <em>It also was my first attempt to use Duct/Integrant micro-frameworks for building a real Clojure app.</em></p></div><div class="sect1"><h2 id="_introduction">Introduction</h2><div class="sectionbody"><div class="paragraph"><p>I’m a subscriber of <a href="http://purelyfunctional.tv/">PurelyFunctional.tv</a> and I think it’s the best online resource for learning Clojure that is available out there.
 As part of the membership, Eric Normand (the man behind PurelyFunctional.tv) offers a free 30-min coaching session where you can discuss your Clojure learning strategy - issues, challenges, approaches, etc.</p></div><div class="paragraph"><p>A while ago, during my coaching call, I mentioned that feedback from a real Clojure expert is one of the most important things for learning and that I’d lacked this type of feedback during my Clojure learning journey.
 To my surprise, Eric immediately offered his help in reviewing my code.

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <!-- Website Template designed by www.downloadwebsitetemplates.co.uk -->
+    <!-- Modified to fit Cryogen.-->
+    <meta charset="UTF-8">
+    <title>Curious (Clojure) Programmer: My Talks</title>
+    
+
+<meta name="description" content="2019Beyond Technical Debt: Unconventional techniques to uncover technical and social issues in your codeSlides (PDF): https://curiousprogrammer.net/GdgJihlava-CodeScene.pdfAbstract:
+* Traditional static code analysis tools (Sonar et al.) are notoriously bad at producing actionable insights (what does the “4000 years of accumulated technical debt” really mean?)
+* CodeScene takes a different approach and focuses instead on how code evolves over time using a treasure trove we all posses – version control history.
+* Come and meet CodeScene, a unique behavioral code analysis tool that looks for patterns in version control data to understand the history and evolution of a codebase: unraveling things like hotspots, change coupling between modules and interesting social aspects of the code.
+* I’ll describe the ideas behind CodeScene, how it works and demonstrate the techniques on analyses of real projects.">
+
+<meta property="og:description" content="2019Beyond Technical Debt: Unconventional techniques to uncover technical and social issues in your codeSlides (PDF): https://curiousprogrammer.net/GdgJihlava-CodeScene.pdfAbstract:
+* Traditional static code analysis tools (Sonar et al.) are notoriously bad at producing actionable insights (what does the “4000 years of accumulated technical debt” really mean?)
+* CodeScene takes a different approach and focuses instead on how code evolves over time using a treasure trove we all posses – version control history.
+* Come and meet CodeScene, a unique behavioral code analysis tool that looks for patterns in version control data to understand the history and evolution of a codebase: unraveling things like hotspots, change coupling between modules and interesting social aspects of the code.
+* I’ll describe the ideas behind CodeScene, how it works and demonstrate the techniques on analyses of real projects.">
+
+<meta property="og:url" content="http://curiousprogrammer.net/pages/my-talks" />
+<meta property="og:title" content="My Talks" />
+<meta property="og:type" content="article" />
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <!--[if IE]><![endif]-->
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css" />
+    <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/typography.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow-night-eighties.min.css">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+
+<div id="left">
+
+    <p id="logo">
+        <a title="Curious (Clojure) Programmer" href="/">
+            <span class="fa fa-rocket"></span>
+            <span class="text">Nucleus</span>
+        </a>
+    </p>
+
+    <div id="menucont" class="bodycontainer clearfix">
+        <div class="menutitle">
+            <p><span class="fa fa-reorder"></span><strong>Menu</strong></p>
+        </div>
+        <ul class="menu">
+            <li ><a title="Home" href="/">Home</a></li>
+            <li ><a title="Archives" href="/archives">Archives</a></li>
+            
+            <li ><a title="Tags" href="/tags">Tags</a></li>
+            
+            
+            <li >
+                <a href="/pages/about">About</a>
+            </li>
+            
+            <li  class="active" >
+                <a href="/pages/my-talks">My Talks</a>
+            </li>
+            
+            <li >
+                <a href="/pages/weekly-bits-pieces">Weekly Bits &amp; Pieces</a>
+            </li>
+            
+            <li >
+                <a href="/pages/clojure-tip-of-the-day-screencast">Clojure Tip of the Day Screencast</a>
+            </li>
+            
+            <li><a title="RSS" href="/feed.xml">RSS</a></li>
+        </ul>
+    </div>
+
+    <div id="socialmedia" class="clearfix">
+        <ul>
+            <li><a title="GitHub" href="./" rel="external"><span class="fa fa-github"></span></a></li>
+            <li><a title="Stack Overflow" href="./" rel="external"><span class="fa fa-stack-overflow"></span></a></li>
+            <li><a title="Google+" href="./" rel="external"><span class="fa fa-google-plus"></span></a></li>
+            <li><a title="LinkedIn" href="./" rel="external"><span class="fa fa-linkedin"></span></a></li>
+            <li><a title="Last.fm" href="./" rel="external"><span class="fa fa-lastfm"></span></a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div id="right" class="clearfix">
+    
+<div id="custom-page">
+    <div id="page-header">
+        <h1>My Talks</h1>
+    </div>
+    
+    <div id="toc" class="toc"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_2019">2019</a><ul class="sectlevel2"><li><a href="#_beyond_technical_debt_unconventional_techniques_to_uncover_technical_and_social_issues_in_your_code">Beyond Technical Debt: Unconventional techniques to uncover technical and social issues in your code</a></li></ul></li><li><a href="#_2018">2018</a><ul class="sectlevel2"><li><a href="#_codescene_get_deep_insights_into_your_clojure_code">CodeScene: Get Deep Insights into Your (Clojure) Code</a></li></ul></li><li><a href="#_2017">2017</a><ul class="sectlevel2"><li><a href="#_clojure_a_functional_lisp_for_the_jvm">Clojure: A Functional LISP for the JVM</a></li></ul></li></ul></div><div class="sect1"><h2 id="_2019">2019</h2><div class="sectionbody"><div class="sect2"><h3 id="_beyond_technical_debt_unconventional_techniques_to_uncover_technical_and_social_issues_in_your_code"><a href="https://www.meetup.com/gdgjihlava/events/265293406/" target="_blank" rel="noopener">Beyond Technical Debt: Unconventional techniques to uncover technical and social issues in your code</a></h3><div class="paragraph"><p>Slides (PDF): <a href="https://curiousprogrammer.net/GdgJihlava-CodeScene.pdf" class="bare">https://curiousprogrammer.net/GdgJihlava-CodeScene.pdf</a></p></div><div class="paragraph"><p>Abstract:
+* Traditional static code analysis tools (Sonar et al.) are notoriously bad at producing actionable insights (what does the “4000 years of accumulated technical debt” really mean?)
+* CodeScene takes a different approach and focuses instead on how code evolves over time using a treasure trove we all posses – version control history.
+* Come and meet CodeScene, a unique behavioral code analysis tool that looks for patterns in version control data to understand the history and evolution of a codebase: unraveling things like hotspots, change coupling between modules and interesting social aspects of the code.
+* I’ll describe the ideas behind CodeScene, how it works and demonstrate the techniques on analyses of real projects.</p></div></div></div></div><div class="sect1"><h2 id="_2018">2018</h2><div class="sectionbody"><div class="sect2"><h3 id="_codescene_get_deep_insights_into_your_clojure_code"><a href="https://www.meetup.com/clojure-vienna/events/247814217/" target="_blank" rel="noopener">CodeScene: Get Deep Insights into Your (Clojure) Code</a></h3><div class="paragraph"><p>I presented CodeScene, a revolutionary behavioral code analysis tool from Empear (the company I work for).</p></div><div class="paragraph"><p>Youtube video (audio + slides): <a href="https://youtu.be/rpkZvx2b0V4" class="bare">https://youtu.be/rpkZvx2b0V4</a></p></div><div class="paragraph"><p>Slides: <a href="https://www.slideshare.net/jurajmartinka77/codescene-get-deep-insights-into-your-clojure-code-clojure-vienna-meetup-march-2018" class="bare">https://www.slideshare.net/jurajmartinka77/codescene-get-deep-insights-into-your-clojure-code-clojure-vienna-meetup-march-2018</a></p></div></div></div></div><div class="sect1"><h2 id="_2017">2017</h2><div class="sectionbody"><div class="sect2"><h3 id="_clojure_a_functional_lisp_for_the_jvm"><a href="https://www.meetup.com/fpbrno/events/243877465/" target="_blank" rel="noopener">Clojure: A Functional LISP for the JVM</a></h3><div class="paragraph"><p>A rather long presentation for Functional Programming Brno meetup. It was fun and my first public presentation for a bigger audience (~20 people).</p></div><div class="paragraph"><p>Youtube video (audio + slides): <a href="https://youtu.be/YeUOWaM_Gk8" class="bare">https://youtu.be/YeUOWaM_Gk8</a></p></div><div class="paragraph"><p>Slides: <a href="https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/" class="bare">https://www.slideshare.net/FPBrno/fpbrno-20171024-clojure-a-functional-lisp-on-the-jvm/</a></p></div><div class="paragraph"><p><a href="../posts/2017-11-01-functional-programming-brno-meetup-clojure">Summary</a></p></div></div></div></div>
+
+    <div id="prev-next">
+        
+        <a class="button" href="/pages/about">&laquo; About</a>
+        
+        
+        <a class="right button" href="/pages/weekly-bits-pieces">Weekly Bits &amp; Pieces &raquo;</a>
+        
+    </div>
+</div>
+
+<hr/>
+<div id="footercont" class="clearfix">Copyright &copy; 2022 Juraj Martinka
+    <p>Powered by <a href="http://cryogenweb.org">Cryogen</a> | Free Website Template by <a title="free website templates" href="http://www.downloadwebsitetemplates.co.uk" rel="external">Download Website Templates</a></p>
+
+</div>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/scripts.js" type="application/javascript"></script>
+
+
+</body>
+</html>

@@ -9,13 +9,11 @@
     <meta charset="UTF-8">
     <title>Curious (Clojure) Programmer: Clojure Development Workflow with Spacemacs and CIDER</title>
     
-<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+<meta name="keywords" content="podcast,wordpress,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
 
-<meta name="description" content="This is a follow-up to my previous post What’s the Best Clojure IDE? I’ll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools.I’ve already described my tour through the various Clojure IDEs/editors and why I’ve chosen the Spacemacs.
-If you haven’t read the previous post, you may want to go back and read at least the Spacemacs to the rescue part.">
+<meta name="description" content="This is a follow-up to my previous post What’s the Best Clojure IDE? I’ll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools.">
 
-<meta property="og:description" content="This is a follow-up to my previous post What’s the Best Clojure IDE? I’ll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools.I’ve already described my tour through the various Clojure IDEs/editors and why I’ve chosen the Spacemacs.
-If you haven’t read the previous post, you may want to go back and read at least the Spacemacs to the rescue part.">
+<meta property="og:description" content="This is a follow-up to my previous post What’s the Best Clojure IDE? I’ll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools.">
 
 <meta property="og:url" content="http://curiousprogrammer.net/posts/2017-05-12-clojure-development-workflow-with-spacemacs-and-cider" />
 <meta property="og:title" content="Clojure Development Workflow with Spacemacs and CIDER" />
@@ -60,7 +58,19 @@ If you haven’t read the previous post, you may want to go back and read at lea
             
             
             <li >
-                <a href="/pages/adoc-page">Adoc Page</a>
+                <a href="/pages/about">About</a>
+            </li>
+            
+            <li >
+                <a href="/pages/my-talks">My Talks</a>
+            </li>
+            
+            <li >
+                <a href="/pages/weekly-bits-pieces">Weekly Bits &amp; Pieces</a>
+            </li>
+            
+            <li >
+                <a href="/pages/clojure-tip-of-the-day-screencast">Clojure Tip of the Day Screencast</a>
             </li>
             
             <li><a title="RSS" href="/feed.xml">RSS</a></li>
@@ -90,8 +100,8 @@ If you haven’t read the previous post, you may want to go back and read at lea
     <h1>Clojure Development Workflow with Spacemacs and CIDER</h1>
 </div>
 <div>
-    <ul class="toc"><li><a href="#_summary">Summary</a></li><ul><li><a href="#_bonus">Bonus</a></li></ul><li><a href="#_resources">Resources</a></li></ul>
-    <div class="paragraph"><p><em>This is a follow-up to my previous post <a href="https://curiousprogrammer.net/2017/03/21/whats-the-best-clojure-ide/">What’s the Best Clojure IDE?</a> I’ll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools.</em></p></div><div class="paragraph"><p>I’ve already described my tour through the various Clojure IDEs/editors and why I’ve chosen the Spacemacs.
+    
+    <div id="toc" class="toc"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_summary">Summary</a><ul class="sectlevel2"><li><a href="#_bonus">Bonus</a></li></ul></li><li><a href="#_resources">Resources</a></li></ul></div><div class="paragraph"><p><em>This is a follow-up to my previous post <a href="https://curiousprogrammer.net/2017/03/21/whats-the-best-clojure-ide/">What’s the Best Clojure IDE?</a> I’ll show you my usual Clojure development workflow using Spacemacs+CIDER as primary tools.</em></p></div><div class="paragraph"><p>I’ve already described my tour through the various Clojure IDEs/editors and why I’ve chosen the Spacemacs.
 If you haven’t read the <a href="https://curiousprogrammer.net/2017/03/21/whats-the-best-clojure-ide/">previous post</a>, you may want to go back and read at least the <a href="https://curiousprogrammer.net/2017/03/21/whats-the-best-clojure-ide/#spacemacs-to-the-rescue">Spacemacs to the rescue</a> part.</p></div><div class="paragraph"><p>In this post, I’ll try to dig deeper and show you the complete development workflow.
 I’ve chosen video screencast as a primary format for this because I think it’s more useful to see everything in action.</p></div><div class="paragraph"><p>We’ll create a simple <em>clojure-repl</em> project containing the <em>jmethods</em> function for listing all public methods of java classes.</p></div><div class="paragraph"><p>You can find <strong><a href="https://www.youtube.com/watch?v=4ecC3jqHooc">the video</a></strong> in the <a href="https://www.youtube.com/channel/UCD_9SmDPrAe-sZAfSB9tjdg">Curious Programmer YouTube channel</a>.</p></div><div class="paragraph"><p>Below is a brief summary of topics/tips presented in the screencast.</p></div><div class="sect1"><h2 id="_summary">Summary</h2><div class="sectionbody"><div class="ulist"><ul><li><p>Generate new leiningen project: <em>lein new clojure-repl</em></p></li><li><p>Open Spacemacs</p></li><li><p>Create new layout: <code>SPC l 2</code>;
 enter layout name: <em>clojure-repl</em></p></li><li><p>Open <em>clojure-repl/__project.clj</em> by pressing <code>SPC f f</code> and looking up the file on a file system</p></li><li><p>Open <em>Neotree</em> buffer via <code>SPC p t</code> to explore project structure</p><div class="ulist"><ul><li><p>You can navigate in this buffer via standard vim key bindings: <code>j, k, l, h</code>.

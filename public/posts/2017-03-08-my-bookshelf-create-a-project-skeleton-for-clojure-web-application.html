@@ -9,11 +9,11 @@
     <meta charset="UTF-8">
     <title>Curious (Clojure) Programmer: My Bookshelf: Create a Project Skeleton for Clojure Web Application</title>
     
-<meta name="keywords" content="podcast,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
+<meta name="keywords" content="podcast,wordpress,screencast,clojure-tip-of-the-day,cryogen,learning,tools,clojure,my-bookshelf,meetup,misc,editors,functional-programming,cloudflare,emacs-cider,asciidoc,emacs,conference,refactoring,spacemacs,concurrency,brno">
 
-<meta name="description" content="In the last post, I discussed my Clojure learning strategy in general and introduced my new hobby project My Bookshelf.This is the very first post in the My Bookshelf series in which I’ll describe how to create a skeleton of a simple Clojure web application based on Luminus template.">
+<meta name="description" content="In the last post, I discussed my Clojure learning strategy in general and introduced my new hobby project My Bookshelf.">
 
-<meta property="og:description" content="In the last post, I discussed my Clojure learning strategy in general and introduced my new hobby project My Bookshelf.This is the very first post in the My Bookshelf series in which I’ll describe how to create a skeleton of a simple Clojure web application based on Luminus template.">
+<meta property="og:description" content="In the last post, I discussed my Clojure learning strategy in general and introduced my new hobby project My Bookshelf.">
 
 <meta property="og:url" content="http://curiousprogrammer.net/posts/2017-03-08-my-bookshelf-create-a-project-skeleton-for-clojure-web-application" />
 <meta property="og:title" content="My Bookshelf: Create a Project Skeleton for Clojure Web Application" />
@@ -58,7 +58,19 @@
             
             
             <li >
-                <a href="/pages/adoc-page">Adoc Page</a>
+                <a href="/pages/about">About</a>
+            </li>
+            
+            <li >
+                <a href="/pages/my-talks">My Talks</a>
+            </li>
+            
+            <li >
+                <a href="/pages/weekly-bits-pieces">Weekly Bits &amp; Pieces</a>
+            </li>
+            
+            <li >
+                <a href="/pages/clojure-tip-of-the-day-screencast">Clojure Tip of the Day Screencast</a>
             </li>
             
             <li><a title="RSS" href="/feed.xml">RSS</a></li>
@@ -88,8 +100,8 @@
     <h1>My Bookshelf: Create a Project Skeleton for Clojure Web Application</h1>
 </div>
 <div>
-    <ul class="toc"><li><a href="#_getting_started">Getting Started</a></li><ul><li><a href="#_tools">Tools</a></li></ul><li><a href="#_generate_a_project_skeleton">Generate a Project Skeleton</a></li><li><a href="#_set_up_a_database">Set Up a Database</a></li><ul><li><a href="#_db_config">DB config</a></li><li><a href="#_migrate_the_database">Migrate the Database</a></li></ul><li><a href="#_run_the_application">Run the Application</a></li><ul><li><a href="#_configure_a_different_port_for_a_web_application">Configure a Different Port For a Web Application</a></li><li><a href="#_add_a_simple_welcome_page">Add a Simple Welcome page</a></li></ul><li><a href="#_conclusion">Conclusion</a></li><ul><li><a href="#_source_code">Source code</a></li></ul></ul>
-    <div class="paragraph"><p><em>In the <a href="https://curiousprogrammer.net/2017/02/15/my-clojure-learning-strategy/">last post</a>, I discussed my Clojure learning strategy in general and introduced my new hobby project My Bookshelf.</em></p></div><div class="paragraph"><p><em>This is the very first post in the My Bookshelf series in which I’ll describe how to create a skeleton of a simple Clojure web application based on <a href="http://www.luminusweb.net/">Luminus template</a>.</em></p></div><div class="sect1"><h2 id="_getting_started">Getting Started</h2><div class="sectionbody"><div class="paragraph"><p>When I presented <a href="https://curiousprogrammer.net/2017/02/15/my-clojure-learning-strategy/">My Clojure Learning Strategy</a>, I mentioned the importance of practical experience and learning just enough to get started.
+    
+    <div id="toc" class="toc"><div id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_getting_started">Getting Started</a><ul class="sectlevel2"><li><a href="#_tools">Tools</a></li></ul></li><li><a href="#_generate_a_project_skeleton">Generate a Project Skeleton</a></li><li><a href="#_set_up_a_database">Set Up a Database</a></li><li><a href="#_run_the_application">Run the Application</a><ul class="sectlevel2"><li><a href="#_configure_a_different_port_for_a_web_application">Configure a Different Port For a Web Application</a></li><li><a href="#_add_a_simple_welcome_page">Add a Simple Welcome page</a></li></ul></li><li><a href="#_conclusion">Conclusion</a><ul class="sectlevel2"><li><a href="#_source_code">Source code</a></li></ul></li></ul></div><div class="paragraph"><p><em>In the <a href="https://curiousprogrammer.net/2017/02/15/my-clojure-learning-strategy/">last post</a>, I discussed my Clojure learning strategy in general and introduced my new hobby project My Bookshelf.</em></p></div><div class="paragraph"><p><em>This is the very first post in the My Bookshelf series in which I’ll describe how to create a skeleton of a simple Clojure web application based on <a href="http://www.luminusweb.net/">Luminus template</a>.</em></p></div><div class="sect1"><h2 id="_getting_started">Getting Started</h2><div class="sectionbody"><div class="paragraph"><p>When I presented <a href="https://curiousprogrammer.net/2017/02/15/my-clojure-learning-strategy/">My Clojure Learning Strategy</a>, I mentioned the importance of practical experience and learning just enough to get started.
 This is exactly what <a href="https://curiousprogrammer.net/2017/02/15/my-clojure-learning-strategy/#step7">Step 7 of 10-step learning process is about</a>.</p></div><div class="paragraph"><p>As a preparation, I read the first chapter in <a href="http://amzn.to/2lK9liF">Web Development with Clojure, 2nd ed.</a> This was more than enough to get ready for creating a new project for <em>My Bookshelf.</em></p></div><div class="sect2"><h3 id="_tools">Tools</h3><div class="paragraph"><p>To be able to generate the project skeleton with Luminus template you need Java JDK and <a href="https://leiningen.org/">Leiningen</a>.</p></div><div class="paragraph"><p>I installed <a href="https://github.com/technomancy/leiningen/wiki/Packaging">Leiningen via brew</a>:</p></div><div class="paragraph"><p><code>brew install leiningen</code></p></div><div class="paragraph"><p>You’ll also need to install a database of your choice.
 I chose PostgreSQL:</p></div><div class="listingblock"><div class="content"><pre># install PostgreSQL
 brew install postgresql

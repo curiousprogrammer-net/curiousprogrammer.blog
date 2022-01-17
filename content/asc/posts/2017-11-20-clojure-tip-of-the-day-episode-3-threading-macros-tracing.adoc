@@ -3,8 +3,9 @@
 :title "Clojure Tip of the Day - Episode 3: Threading Macros Tracing"
 :layout :post
 :tags  ["clojure" "clojure-tip-of-the-day" "screencast"]
-:toc :ul
 }
+
+:toc:
 
 The third episode of my https://curiousprogrammer.net/clojure-tip-of-the-day-screencast/[Clojure Tip of the Day] screencast is out.
 

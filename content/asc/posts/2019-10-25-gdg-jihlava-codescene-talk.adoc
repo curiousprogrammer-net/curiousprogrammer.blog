@@ -3,8 +3,9 @@
 :title "GDG Jihlava - CodeScene talk"
 :layout :post
 :tags  ["meetup"]
-:toc :ul
 }
+
+:toc:
 
 I gave a talk at https://twitter.com/GDGJihlava[GDG Jihlava] yesterday about https://codescene.io[CodeScene], a unique behavioral code analysis tool that I'm grateful to work on.
 

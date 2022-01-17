@@ -19,7 +19,8 @@
  :sass-src                     []
  :sass-path                    "sass"
  :theme                        "nucleus"
- :resources                    ["img"]
+ ;; Cloudflare requires the _redirects file to be in the build output folder
+ :resources                    ["img" "content" "_redirects"]
  :keep-files                   [".git"]
  :disqus?                      false
  :disqus-shortname             ""

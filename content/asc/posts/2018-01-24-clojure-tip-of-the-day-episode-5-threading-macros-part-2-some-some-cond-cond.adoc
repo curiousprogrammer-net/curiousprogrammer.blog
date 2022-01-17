@@ -3,8 +3,9 @@
 :title "Clojure Tip of the Day – Episode 5: Threading Macros: part 2 – some->, some->>, cond->, cond->>"
 :layout :post
 :tags  ["clojure" "clojure-tip-of-the-day" "screencast"]
-:toc :ul
 }
+
+:toc:
 
 Today, I've published a follow-up for the https://curiousprogrammer.net/2018/01/18/clojure-tip-of-the-day-episode-4-threading-macros-part-1-thread-first-thread-last-thread-as/[previous episode] showing the remaining 4 Clojure threading macros: some\->, some->>, cond\->, and cond->>.
 

@@ -3,8 +3,9 @@
 :title "Busy (Clojure) Developer Guide to Podcasts"
 :layout :post
 :tags  ["clojure" "podcast" "learning"]
-:toc :ul
 }
+
+:toc:
 
 _In this post, I'll share with you the list of my favorite podcasts.
 Some of them are focusing on Clojure, but others are more general.

@@ -3,8 +3,9 @@
 :title "Clojure Tip of the Day - Episode 2: Cider Enlighten Mode"
 :layout :post
 :tags  ["clojure" "clojure-tip-of-the-day" "screencast" "emacs-cider" "tools"]
-:toc :ul
 }
+
+:toc:
 
 The new episode of my https://curiousprogrammer.net/clojure-tip-of-the-day-screencast/[Clojure Tip of the Day] screencast is out.
 

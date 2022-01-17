@@ -3,8 +3,9 @@
 :title "Clojure Tip of the Day - Episode 4: Threading Macros: part 1 - thread-first, thread-last, thread-as"
 :layout :post
 :tags  ["clojure" "clojure-tip-of-the-day" "screencast"]
-:toc :ul
 }
+
+:toc:
 
 After a long break, I've finally recorded another episode of the https://curiousprogrammer.net/clojure-tip-of-the-day-screencast/[Clojure Tip of The Day screencast].
 I've spent last month or so by revisiting my goals for the next year and I want to bring more consistency to my blog and other creative activities.

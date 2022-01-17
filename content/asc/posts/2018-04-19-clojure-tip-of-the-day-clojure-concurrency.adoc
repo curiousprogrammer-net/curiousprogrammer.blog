@@ -3,8 +3,9 @@
 :title "Clojure Tip of the Day - Clojure Concurrency"
 :layout :post
 :tags  ["clojure" "clojure-tip-of-the-day" "screencast" "concurrency"]
-:toc :ul
 }
+
+:toc:
 
 I've made a short "welcome" video for a new _Clojure Concurrency_ series.
 

@@ -3,8 +3,9 @@
 :title "Going forward: Book summaries and Weekly Bits & Pieces"
 :layout :post
 :tags  ["misc"]
-:toc :ul
 }
+
+:toc:
 
 It's been a while since my last post and I've been very inconsistent in publishing new content.
 But I want to publish interesting content which both I (reviewing & sorting out materials) and other readers could benefit from.

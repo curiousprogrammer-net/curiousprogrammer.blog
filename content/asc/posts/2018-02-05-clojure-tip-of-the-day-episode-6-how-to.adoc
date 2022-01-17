@@ -3,8 +3,9 @@
 :title "Clojure Tip of the Day – Episode 6: How To Reload Multimethod Definition"
 :layout :post
 :tags  ["clojure" "clojure-tip-of-the-day" "screencast"]
-:toc :ul
 }
+
+:toc:
 
 A new episode of https://curiousprogrammer.net/clojure-tip-of-the-day-screencast/[Clojure Tip of the Day screencast] is out.
 

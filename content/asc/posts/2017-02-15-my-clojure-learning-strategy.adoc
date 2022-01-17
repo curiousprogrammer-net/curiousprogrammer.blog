@@ -3,8 +3,9 @@
 :title "My (Clojure) learning strategy"
 :layout :post
 :tags  ["clojure" "meetup" "brno"]
-:toc :ul
 }
+
+:toc:
 
 _In this post, I'll discuss the general learning strategy and show an example how to apply it to Learning the Clojure programming language._
 

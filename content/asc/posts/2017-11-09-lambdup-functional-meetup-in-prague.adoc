@@ -3,8 +3,9 @@
 :title "LambdUp Functional Meetup in Prague"
 :layout :post
 :tags  ["functional-programming" "conference"]
-:toc :ul
 }
+
+:toc:
 
 There's going to be a very interesting functional meetup _*LambdUp*_ in Prague (CZ) on 6th December 2017 organized by https://www.blueberry.io/[Blueberry].
 

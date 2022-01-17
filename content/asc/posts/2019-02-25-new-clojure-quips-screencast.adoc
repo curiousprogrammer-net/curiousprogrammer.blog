@@ -3,8 +3,9 @@
 :title "New Clojure Quips Screencast"
 :layout :post
 :tags  ["screencast" "clojure"]
-:toc :ul
 }
+
+:toc
 
 It's been a while since I recorded the last https://curiousprogrammer.net/2018/04/19/clojure-tip-of-the-day-clojure-concurrency/[Clojure Tip of the Day episode].
 

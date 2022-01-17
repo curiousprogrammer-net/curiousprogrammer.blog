@@ -3,8 +3,9 @@
 :title "Clojure Tip of the Day – Episode 7: clj-refactor"
 :layout :post
 :tags  ["clojure" "clojure-tip-of-the-day" "screencast" "emacs" "refactoring"]
-:toc :ul
 }
+
+:toc:
 
 Another episode of https://curiousprogrammer.net/clojure-tip-of-the-day-screencast/[Clojure Tip of the Day screencast] is out.
 

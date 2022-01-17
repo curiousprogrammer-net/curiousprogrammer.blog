@@ -3,8 +3,9 @@
 :title "What's the Best Clojure IDE?"
 :layout :post
 :tags  ["clojure" "editors" "emacs"]
-:toc :ul
 }
+
+:toc:
 
 _In this article, I'll evaluate the Emacs, Cursive, and_ Spacemacs_, and explain why I ended up with_ Spacemacs _for most of the projects I'm currently working on._
 

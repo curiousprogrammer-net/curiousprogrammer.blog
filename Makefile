@@ -1,7 +1,5 @@
-build:
-	clojure -M:build
-  # Cloudflare requires the _redirects file to be in the build output folder
-	cp _redirects public/
+.PHONY build:
+	clojure -M:build # or `lein run`
 
 dev:
 	clojure -X:serve

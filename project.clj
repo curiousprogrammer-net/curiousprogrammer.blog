@@ -7,8 +7,10 @@
                            [ring/ring-devel "1.8.2"]
                            [compojure "1.6.2"]
                            [ring-server "0.5.0"]
-                           [cryogen-flexmark "0.1.4"]
-                           [cryogen-core "0.4.1"]]
+                           [cryogen-core "0.4.1"]
+                           ;; use this for markdown if you want
+                           ;; [cryogen-flexmark "0.1.4"]
+                           [cryogen-asciidoc "0.3.3"]]
             :plugins [[lein-ring "0.12.5"]]
             :main cryogen.core
             :ring {:init cryogen.server/init

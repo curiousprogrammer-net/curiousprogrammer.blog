@@ -1,52 +1,56 @@
 # Pages
-/about/ /pages/about
-/my-talks/ /pages/my-talks
-/weekly-bits-pieces/ /pages/weekly-bits
-/book-summaries/ /pages/book-summaries
-/clojure-quips/ /pages/clojure-quips
-/clojure-tip-of-the-day-screencast/ /pages/clojure-tip-of-the-day-screencast
+/about /pages/about 301
+/about/ /pages/about 301
+/my-talks/ /pages/my-talks 301
+/my-talks/ /pages/my-talks 301
+/weekly-bits-pieces /pages/weekly-bits 301
+/weekly-bits-pieces/ /pages/weekly-bits 301
+/clojure-quips  /pages/clojure-tip-of-the-day-screencast 301
+/clojure-quips/ /pages/clojure-tip-of-the-day-screencast 301
+/clojure-tip-of-the-day-screencast  /pages/clojure-tip-of-the-day-screencast 301
+/clojure-tip-of-the-day-screencast/ /pages/clojure-tip-of-the-day-screencast 301
 # RSS feed
-/feed/ /feed.xml
+/feed/ /feed.xml 301
 # Posts
-/2017/01/28/how-to-create-a-blog-to-boost-your-career/ /posts/2017-01-28-how-to-create-a-blog-to-boost-your-career
-/2017/01/31/why-do-i-want-to-learn-clojure-and-why-you-should-too/ /posts/2017-01-31-why-do-i-want-to-learn-clojure-and-why-you-should-too
-/2017/02/08/random-excepts-from-brno-clojure-meetup/ /posts/2017-02-08-random-excepts-from-brno-clojure-meetup
-/2017/02/15/my-clojure-learning-strategy/ /posts/2017-02-15-my-clojure-learning-strategy
-/2017/03/08/my-bookshelf-create-a-project-skeleton-for-clojure-web-application/ /posts/2017-03-08-my-bookshelf-create-a-project-skeleton-for-clojure-web-application
-/2017/03/21/whats-the-best-clojure-ide/ /posts/2017-03-21-whats-the-best-clojure-ide
-/2017/05/12/clojure-development-workflow-with-spacemacs-and-cider/ /posts/2017-05-12-clojure-development-workflow-with-spacemacs-and-cider
-/2017/09/18/busy-clojure-developer-guide-to-podcasts/ /posts/2017-09-18-busy-clojure-developer-guide-to-podcasts
-/2017/11/01/functional-programming-brno-meetup-clojure/ /posts/2017-11-01-functional-programming-brno-meetup-clojure
-/2017/11/05/introducing-clojure-tip-of-the-day-screencast/ /posts/2017-11-05-introducing-clojure-tip-of-the-day-screencast
-/2017/11/09/clojure-tip-of-the-day-episode-2-cider-enlighten-mode/ /posts/2017-11-09-clojure-tip-of-the-day-episode-2-cider-enlighten-mode
-/2017/11/09/lambdup-functional-meetup-in-prague/ /posts/2017-11-09-lambdup-functional-meetup-in-prague
-/2017/11/20/clojure-tip-of-the-day-episode-3-threading-macros-tracing/ /posts/2017-11-20-clojure-tip-of-the-day-episode-3-threading-macros-tracing
-/2018/01/18/clojure-tip-of-the-day-episode-4-threading-macros-part-1-thread-first-thread-last-thread-as/ /posts/2018-01-18-clojure-tip-of-the-day-episode-4-threading-macros-part-1-thread-first-thread-last-thread-as
-/2018/01/24/clojure-tip-of-the-day-episode-5-threading-macros-part-2-some-some-cond-cond/ /posts/2018-01-24-clojure-tip-of-the-day-episode-5-threading-macros-part-2-some-some-cond-cond
-/2018/02/05/clojure-tip-of-the-day-episode-6-how-to/ /posts/2018-02-05-clojure-tip-of-the-day-episode-6-how-to
-/2018/02/10/defn-podcast-episode-30-zach-tellman/ /posts/2018-02-10-defn-podcast-episode-30-zach-tellman
-/2018/02/15/defn-podcast-episode-30-bruce-hauman/ /posts/2018-02-15-defn-podcast-episode-30-bruce-hauman
-/2018/04/19/clojure-tip-of-the-day-clojure-concurrency/ /posts/2018-04-19-clojure-tip-of-the-day-clojure-concurrency
-/2018/05/11/pureblog-a-simple-blog-implementation-in-clojure-for-purelyfunctional-tv/ /posts/2018-05-11-pureblog-a-simple-blog-implementation-in-clojure-for-purelyfunctional-tv
-/2019/02/25/new-clojure-quips-screencast/ /posts/2019-02-25-new-clojure-quips-screencast
-/2019/10/25/gdg-jihlava-codescene-talk/ /posts/2019-10-25-gdg-jihlava-codescene-talk
-/2020/04/27/going-forward-book-summaries-and-weekly-bits-pieces/ /posts/2020-04-27-going-forward-book-summaries-and-weekly-bits-pieces
+/2017/01/28/how-to-create-a-blog-to-boost-your-career/ /posts/2017-01-28-how-to-create-a-blog-to-boost-your-career 301
+/2017/01/31/why-do-i-want-to-learn-clojure-and-why-you-should-too/ /posts/2017-01-31-why-do-i-want-to-learn-clojure-and-why-you-should-too 301
+/2017/02/08/random-excepts-from-brno-clojure-meetup/ /posts/2017-02-08-random-excepts-from-brno-clojure-meetup 301
+/2017/02/15/my-clojure-learning-strategy/ /posts/2017-02-15-my-clojure-learning-strategy 301
+/2017/03/08/my-bookshelf-create-a-project-skeleton-for-clojure-web-application/ /posts/2017-03-08-my-bookshelf-create-a-project-skeleton-for-clojure-web-application 301
+/2017/03/21/whats-the-best-clojure-ide/ /posts/2017-03-21-whats-the-best-clojure-ide 301
+/2017/05/12/clojure-development-workflow-with-spacemacs-and-cider/ /posts/2017-05-12-clojure-development-workflow-with-spacemacs-and-cider 301
+/2017/09/18/busy-clojure-developer-guide-to-podcasts/ /posts/2017-09-18-busy-clojure-developer-guide-to-podcasts 301
+/2017/11/01/functional-programming-brno-meetup-clojure/ /posts/2017-11-01-functional-programming-brno-meetup-clojure 301
+/2017/11/05/introducing-clojure-tip-of-the-day-screencast/ /posts/2017-11-05-introducing-clojure-tip-of-the-day-screencast 301
+/2017/11/09/clojure-tip-of-the-day-episode-2-cider-enlighten-mode/ /posts/2017-11-09-clojure-tip-of-the-day-episode-2-cider-enlighten-mode 301
+/2017/11/09/lambdup-functional-meetup-in-prague/ /posts/2017-11-09-lambdup-functional-meetup-in-prague 301
+/2017/11/20/clojure-tip-of-the-day-episode-3-threading-macros-tracing/ /posts/2017-11-20-clojure-tip-of-the-day-episode-3-threading-macros-tracing 301
+/2018/01/18/clojure-tip-of-the-day-episode-4-threading-macros-part-1-thread-first-thread-last-thread-as/ /posts/2018-01-18-clojure-tip-of-the-day-episode-4-threading-macros-part-1-thread-first-thread-last-thread-as 301
+/2018/01/24/clojure-tip-of-the-day-episode-5-threading-macros-part-2-some-some-cond-cond/ /posts/2018-01-24-clojure-tip-of-the-day-episode-5-threading-macros-part-2-some-some-cond-cond 301
+/2018/02/05/clojure-tip-of-the-day-episode-6-how-to/ /posts/2018-02-05-clojure-tip-of-the-day-episode-6-how-to 301
+/2018/02/10/defn-podcast-episode-30-zach-tellman/ /posts/2018-02-10-defn-podcast-episode-30-zach-tellman 301
+/2018/02/15/defn-podcast-episode-30-bruce-hauman/ /posts/2018-02-15-defn-podcast-episode-30-bruce-hauman 301
+/2018/04/19/clojure-tip-of-the-day-clojure-concurrency/ /posts/2018-04-19-clojure-tip-of-the-day-clojure-concurrency 301
+/2018/05/11/pureblog-a-simple-blog-implementation-in-clojure-for-purelyfunctional-tv/ /posts/2018-05-11-pureblog-a-simple-blog-implementation-in-clojure-for-purelyfunctional-tv 301
+/2019/02/25/new-clojure-quips-screencast/ /posts/2019-02-25-new-clojure-quips-screencast 301
+/2019/10/25/gdg-jihlava-codescene-talk/ /posts/2019-10-25-gdg-jihlava-codescene-talk 301
+/2020/04/27/going-forward-book-summaries-and-weekly-bits-pieces/ /posts/2020-04-27-going-forward-book-summaries-and-weekly-bits-pieces 301
 # Tags
-/category/clojure/ /tags/meetup
-/category/screencast/clojure-tip-of-the-day/ /tags/clojure-tip-of-the-day
-/category/clojurescript/ /tags/clojurescript
-/category/podcast/defn-podcast/ /tags/podcast
-/category/tools/ides-editors/emacscider/ /tags/ides-editors
-/category/fpbrno/ /tags/fpbrno
-/category/tools/ides-editors/ /tags/editors
-/category/learning/ /tags/learning
-/category/meetup/ /tags/meetup
-/category/my-bookshelf/ /tags/my-bookshelf
-/category/podcast/ /tags/podcast
-/category/productivity/ /tags/productivity
-/category/screencast/ /tags/screencat
-/category/tools/ /tags/tools
-/category/emacscider/ /tags/emacs-cider
-/category/uncategorized/ /tags/misc
+/category/clojure/ /tags/meetup 301
+/category/screencast/clojure-tip-of-the-day/ /tags/clojure-tip-of-the-day 301
+/category/clojurescript/ /tags/clojurescript 301
+/category/podcast/defn-podcast/ /tags/podcast 301
+/category/tools/ides-editors/emacscider/ /tags/ides-editors 301
+/category/fpbrno/ /tags/fpbrno 301
+/category/tools/ides-editors/ /tags/editors 301
+/category/learning/ /tags/learning 301
+/category/meetup/ /tags/meetup 301
+/category/my-bookshelf/ /tags/my-bookshelf 301
+/category/podcast/ /tags/podcast 301
+/category/productivity/ /tags/productivity 301
+/category/screencast/ /tags/screencat 301
+/category/tools/ /tags/tools 301
+/category/emacscider/ /tags/emacs-cider 301
+/category/uncategorized/ /tags/misc 301
 # Other content
-/GdgJihlava-CodeScene.pdf /content/GdgJihlava-CodeScene.pdf
+/GdgJihlava-CodeScene.pdf /content/GdgJihlava-CodeScene.pdf 301

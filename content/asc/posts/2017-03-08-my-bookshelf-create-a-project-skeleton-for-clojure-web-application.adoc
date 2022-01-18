@@ -136,7 +136,7 @@ We just want to show a static text.
 
 Now run the application (if you haven't run it already) and open the main page in a browser:
 
-image::../img/my-bookshelf-01-300x99.png[]
+image::/img/my-bookshelf-01-300x99.png[]
 
 == Conclusion
 

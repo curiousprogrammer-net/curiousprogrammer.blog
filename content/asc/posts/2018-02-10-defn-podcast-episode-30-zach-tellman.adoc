@@ -59,14 +59,12 @@ In some situations, it could be better to be explicit: e.g., requiring a default
 ** _Why STM hasn't been as successful as expected_
 *** STM makes things much more complicated (compared to a simple atom) while it gives us only small benefits (mostly under heavy contention).
 *** We usually don't write systems with that heavy concurrency - we instead scale them by distributing load over multiple machines.
-
 ** _core.async_ is mostly useful on the client side (ClojureScript)
 *** People often use it on the server side even if there's no compelling reason to do so.
 
 * *Laziness*
 ** It can be tricky because there's no clear distinction between data in the process and outside the process (file, network, etc.)
 *** Here's further discussion about push & pull concepts: https://groups.google.com/forum/#!msg/elements-of-clojure/qPd--oNq7IU/vEXNtvsPAgAJ[_Question: Not able to understand function pull, push and transform_]
-
 ** If Rich had known about transducers before Clojure 1.0 release, he would have made the laziness much less a default option in Clojure.
 
 * *Light Table*

@@ -5,8 +5,6 @@
 :tags  ["screencast" "clojure"]
 }
 
-:toc
-
 It's been a while since I recorded the last https://curiousprogrammer.net/2018/04/19/clojure-tip-of-the-day-clojure-concurrency/[Clojure Tip of the Day episode].
 
 I've been thinking a lot about the possibilities how to evolve this further and have found that it's a really time-consuming effort and there are also other high-quality websites covering those sorts of topics (as an example, check out wonderful https://purelyfunctional.tv/courses/concurrency/[Clojure Concurrency course from PurelyFunctional.tv]).

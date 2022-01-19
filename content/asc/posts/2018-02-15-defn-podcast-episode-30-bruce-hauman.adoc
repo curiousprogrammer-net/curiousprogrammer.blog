@@ -5,8 +5,6 @@
 :tags  ["podcast" "clojure"]
 }
 
-:toc:
-
 _This is a summary of the defn podcast interview with Bruce Hauman._
 
 Once again, it's been a https://defn.audio/episodes/2018/02/10/bruce-hauman.html[great and long episode] where Ray and Vijay talked to https://github.com/bhauman[Bruce Hauman].

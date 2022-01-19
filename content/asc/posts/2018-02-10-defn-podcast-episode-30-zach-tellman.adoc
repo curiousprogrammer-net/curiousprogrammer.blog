@@ -5,8 +5,6 @@
 :tags  ["podcast" "clojure"]
 }
 
-:toc:
-
 _This is a summary of the defn podcast interview with Zach Tellman._
 
 It was a wonderful http://defn.audio/episodes/2018/01/27/zach-tellman.html[30th episode of the defn podcast] where they interviewed Zach Tellman.

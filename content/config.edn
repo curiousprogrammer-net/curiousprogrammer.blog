@@ -25,8 +25,10 @@
  :disqus?                      false
  :disqus-shortname             ""
  :ignored-files                [#"\.#.*" #".*\.swp$"]
- :previews?                    false
- :posts-per-page               15
+ ;; Set this to true if you would like to display a list of recent posts rather than a full, single post on your home page
+ ;; See https://cryogenweb.org/docs/customizing-the-index.html
+ :previews?                    true
+ :posts-per-page               5
  :blocks-per-preview           2
  ;; Set this to :no-trailing-slash if you use GitHub Pages and prefer URLs not contain a final trailing slash. 
  :clean-urls                   :no-trailing-slash

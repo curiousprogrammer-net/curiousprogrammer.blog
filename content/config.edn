@@ -1,5 +1,6 @@
 ;; https://cryogenweb.org/docs/configuration.html
 {:site-title                   "Curious (Clojure) Programmer"
+ :subtitle                     "Simplicity matters"
  :author                       "Juraj Martinka"
  :description                  "Simplicity matters"
  :site-url                     "http://curiousprogrammer.net/"

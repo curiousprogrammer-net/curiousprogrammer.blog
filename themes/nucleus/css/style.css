@@ -151,7 +151,7 @@ img.imgfull {
     border-radius: 80px;
 }
 
-#left p#logo a span.text {
+#left p#logo a span.title {
     float: left;
     width: 100%;
     font-size: 30px;
@@ -159,6 +159,17 @@ img.imgfull {
     font-weight: 700;
     font-family: "Montserrat";
     text-transform: uppercase;
+}
+
+/* Like the title above but smaller font and italic */
+#left p#logo a span.subtitle {
+  float: left;
+  width: 100%;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 22px;
+  font-weight: 700;
+  font-family: "Montserrat";
 }
 
 #left #socialmedia ul {

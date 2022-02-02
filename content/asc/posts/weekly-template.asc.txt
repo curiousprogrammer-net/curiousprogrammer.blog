@@ -1,0 +1,45 @@
+{
+:date "2022-02-DD"
+:title "Weekly Bits 0X/2022 - Title"
+:layout :post
+:tags  ["weekly-bits" "clojure" "aws"]
+}
+
+:toc:
+:toclevels: 4
+
+
+
+## Clojure
+
+
+### Quick links
+
+## Java / JVM
+
+
+
+## AWS & Cloud
+
+
+
+## Books
+
+
+
+## Writing
+
+
+
+## MISC
+
+
+## Links
+
+A quick recap of some of the links mentioned in this post:
+
+* 
+
+
+
+

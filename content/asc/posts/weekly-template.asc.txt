@@ -13,6 +13,7 @@
 ## Clojure
 
 
+
 ### Quick links
 
 ## Java / JVM
@@ -23,15 +24,20 @@
 
 
 
-## Books
+## Reading (Books)
 
 
 
-## Writing
+## Writing (Blog, Articles)
+
+
+
+## Podcasts
 
 
 
 ## MISC
+
 
 
 ## Links

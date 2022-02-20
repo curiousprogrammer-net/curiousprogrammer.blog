@@ -9,6 +9,7 @@
 :toclevels: 4
 
 
+_Some of the interesting things I did, learned, or found in the past week_.
 
 ## Clojure
 

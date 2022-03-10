@@ -15,8 +15,6 @@ _Some of the interesting things I did, learned, or found in the past week_.
 
 
 
-### Quick links
-
 ## Java / JVM
 
 
@@ -31,9 +29,6 @@ _Some of the interesting things I did, learned, or found in the past week_.
 
 ## Writing (Blog, Articles)
 
-
-
-## Podcasts
 
 
 

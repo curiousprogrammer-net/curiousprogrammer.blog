@@ -3,3 +3,5 @@
 
 dev:
 	clojure -X:serve
+# live-reloading breaks encoding
+	# clojure -X:fast

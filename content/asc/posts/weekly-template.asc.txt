@@ -2,7 +2,7 @@
 :date "2022-04-DD"
 :title "Weekly Bits 0X/2022 - Title"
 :layout :post
-:tags  ["weekly-bits" "clojure" "aws"]
+:tags  ["weekly-bits" "clojure" "aws" "architecture"]
 }
 
 :toc:
@@ -22,7 +22,13 @@ _Some of the interesting things I did, learned, or found in the past week_.
 ## AWS & Cloud
 
 
+
+## Architecture
+
+
+
 ## Security
+
 
 
 ## Reading (Books)
@@ -30,7 +36,6 @@ _Some of the interesting things I did, learned, or found in the past week_.
 
 
 ## Writing (Blog, Articles)
-
 
 
 

@@ -1,6 +1,6 @@
 {
-:date "2022-04-DD"
-:title "Weekly Bits 0X/2022 - Title"
+:date "2022-05-DD"
+:title "Weekly Bits 1X/2022 - Title"
 :layout :post
 :tags  ["weekly-bits" "clojure" "aws" "architecture"]
 }

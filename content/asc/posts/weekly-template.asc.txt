@@ -33,6 +33,9 @@ _Some of the interesting things I did, learned, or found in the past week_.
 
 ## Reading (Books)
 
+### Lisp in Small Pieces
+
+TODO: separate section?
 
 
 ## Writing (Blog, Articles)
@@ -53,7 +56,5 @@ Such as searching in Chrome tabs, Vimium shortcuts, Terminal tips, etc.
 A quick recap of some of the links mentioned in this post:
 
 * 
-
-
 
 

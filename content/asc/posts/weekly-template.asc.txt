@@ -39,8 +39,13 @@ _Some of the interesting things I did, learned, or found in the past week_.
 
 
 
-## MISC
+## Ergonomics
 
+Such as searching in Chrome tabs, Vimium shortcuts, Terminal tips, etc.
+
+
+
+## MISC
 
 
 ## Links

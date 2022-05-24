@@ -33,14 +33,22 @@ _Some of the interesting things I did, learned, or found in the past week_.
 
 ## Reading (Books)
 
+### Lisp in Small Pieces
+
+TODO: separate section?
 
 
 ## Writing (Blog, Articles)
 
 
 
-## MISC
+## Ergonomics
 
+Such as searching in Chrome tabs, Vimium shortcuts, Terminal tips, etc.
+
+
+
+## MISC
 
 
 ## Links
@@ -48,7 +56,5 @@ _Some of the interesting things I did, learned, or found in the past week_.
 A quick recap of some of the links mentioned in this post:
 
 * 
-
-
 
 

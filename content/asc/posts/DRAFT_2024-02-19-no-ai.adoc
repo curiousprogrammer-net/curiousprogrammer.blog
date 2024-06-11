@@ -2,7 +2,7 @@
 :date "2099-01-01"
 :title "No AI"
 :layout :post
-:tags  [ai""]
+:tags  ["ai"]
 }
 
 :toc:

@@ -1,5 +1,5 @@
 {
-:date "2099-01-01"
+:date "2024-06-11"
 :title "DNS: on (not so obvious) recursive name resolution"
 :layout :post
 :tags  ["deep-dive" "dns" "networking" "tcpdump"]
@@ -164,7 +164,7 @@ Current Scopes: none
 ...
 ----
 
-Note: you can get a shore version of this information via `resolvectl dns` (see https://fedoramagazine.org/systemd-resolved-introduction-to-split-dns/[^])
+Note: you can get a shorter version of this via `resolvectl dns` (see https://fedoramagazine.org/systemd-resolved-introduction-to-split-dns/[^])
 
 Let's focus on the `eth0` interface which serves the traffic to/from the Internet:
 [source,bash]
@@ -174,7 +174,7 @@ Current DNS Server: 2a01:4ff:ff00::add:1
 ----
 
 We can see it uses a couple of DNS servers (redundancy!).
-Further down, **you'll see them (their IPv6 addresses) in the tcpdump packet captures**.
+Further down, **you'll see them** (their IPv6 addresses) **in the tcpdump packet captures**.
 
 Let's peek at one of them with `host -v` to see what it is :
 
@@ -977,7 +977,7 @@ ns-280.awsdns-35.com.   172800  IN      A       205.251.193.24
 ----
 
 We got a "glue record" in ADDITIONAL SECTION but only for _one_ of the name servers.
-The reason is outlined in the citation above - glue records are only the _parent_ zone of the domain.
+The reason is outlined in the citation above - **glue records are only the _parent_ zone of the domain**.
 For codescene.com, the parent zone is _**com**_, which means we only get IP address
 for the `ns-280.awsdns-35.com.` name server.
 
@@ -1071,7 +1071,7 @@ Not really, except that before we saw IPv6 address and now we see IPv4 public IP
 A lot of time has passed between these two and the system is now using IPv4.
 
 The important point is that it's really no different from what we already saw at the beginning.
-Flushing the dns cache dns seem to have any effect on the dns traffic on our local system?
+Flushing the dns cache dns doesn't seem to have any effect on the dns traffic on our local system?
 
 Well, it's because we were not careful enough.
 Let's look at the `ANSWER SECTION` in dig output again:

@@ -1,22 +1,22 @@
-{:deps {org.clojure/clojure {:mvn/version "1.10.1"}
+{:deps {org.clojure/clojure {:mvn/version "1.11.1"}
         ring-server/ring-server {:mvn/version "0.5.0"}
         ring/ring-devel {:mvn/version "1.8.2"}
         compojure/compojure {:mvn/version "1.6.2"}
 
         ;; Use this for AsciiDoc: https://cryogenweb.org/docs/switching-markdown-asciidoc.html
         ;; https://github.com/cryogen-project/cryogen-asciidoc
-        cryogen-asciidoc/cryogen-asciidoc {:mvn/version "0.3.3"}
+        cryogen-asciidoc/cryogen-asciidoc {:mvn/version "0.3.4"}
 
         ;; Use this for markdown:
         ;; cryogen-flexmark/cryogen-flexmark {:mvn/version "0.1.4"}
 
-        cryogen-core/cryogen-core {:mvn/version "0.4.0"}}
+        cryogen-core/cryogen-core {:mvn/version "0.4.4"}}
  :aliases {;; Run with `clojure -M:build`
            :build {:main-opts ["-m" "cryogen.core"]}
            ;; Start a server serving the blog: `clojure -X:serve`
            ;; Requires tools.deps.alpha 0.9.810+
            :serve {:exec-fn   cryogen.server/serve
-                   :exec-args {:port 3005}}
+                   :exec-args {:port 3008}}
            ;; Note: the fast compilation breaks char encoding like ' replaced with ?
            :fast {:exec-fn cryogen.server/serve
                   :exec-args {:fast true}}}}

@@ -1,0 +1,18 @@
+{
+:date "2099-01-01"
+:title "Computer Security: Principles, Practices, and Rules"
+:layout :post
+:tags  ["security"]
+}
+
+:toc:
+
+The idea is to establish some useful principles, rules, and practices
+that can greatly help in day-to-day work.
+
+Examples
+
+* Minimalism (least privilege, etc.)
+* "2-5 Admins" rule - always have at least 2 admins, ideally 3; no more than five
+
+## 

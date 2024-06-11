@@ -213,7 +213,7 @@ Capture the data you need in `def`-s, run the top-level function triggering the 
 and observe the generated queries via p6spy.
 
 
-## Resources
+## References
 
 * https://github.com/seancorfield/next-jdbc[next.jdbc^]
 * https://github.com/clojure/java.jdbc[clojure.java.jdbc^]

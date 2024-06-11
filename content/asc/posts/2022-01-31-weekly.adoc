@@ -2,7 +2,7 @@
 :date "2022-01-31"
 :title "Weekly Bits 02/2022 - Domain Modeling, Java DNS caching, RDS upgrades with Terraform"
 :layout :post
-:tags  ["weekly-bits" "clojure" "dns" "aws" "terraform"]
+:tags  ["weekly-bits" "clojure" "dns" "aws" "terraform" "api-security-in-action"]
 }
 
 :toc:

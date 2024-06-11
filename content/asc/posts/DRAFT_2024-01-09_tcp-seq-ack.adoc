@@ -1,0 +1,64 @@
+{
+:date "2099-01-01"
+:title "YOUR TITLE"
+:layout :post
+:tags  ["networking"]
+}
+
+:toc:
+
+_Write intro here_.
+
+
+my tcpdump / TCP packets summary
+- PORT number is very useful in identifying concrete connection in the pile of lots of data transfers (such as HTTP traffic on port 80)
+- seq and ack are another very important mechanism
+	- seq is either ISN (initial sequence number) or typically a range <start:end> that tells us how many bytes this packet contains and what are their sequence numbers
+	- ack = seq + 1 - that is, sequence number of the next package that the server expects to receive
+		- BUT it is tricky - theend component of the range is exclusive - NOT included in the packet data
+			- That means,  ack will be the same as end number in the range - in the example below, we can see
+				- seq 167729:170053
+				- seq 7169:7745, ack 170053
+```
+22:02:49.434889 IP (tos 0x0, ttl 255, id 9479, offset 0, flags [DF], proto TCP (6), length 2376)
+    ip-10-0-4-34.eu-west-1.compute.internal.28142 > ip-10-0-5-222.eu-west-1.compute.internal.http: Flags [P.], cksum 0xc7d3 (correct), seq 167729:170053, ack 7169, win 169, options [nop,nop,TS val 85264528 ecr 3049508006], length 2324: HTTP, length: 2324
+        GET /projects/run-status-4f-demo HTTP/1.1
+        host: codescene.io
+        Accept: application/json
+        Accept-Encoding: br,gzip
+....
+        X-Forwarded-For: 86.49.232.71, 64.252.87.94
+        X-Forwarded-Port: 443
+        X-Forwarded-Proto: https
+       Connection: keep-alive
+...
+
+22:02:49.477737 IP (tos 0x0, ttl 255, id 54333, offset 0, flags [DF], proto TCP (6), length 52)
+    ip-10-0-5-222.eu-west-1.compute.internal.http > ip-10-0-4-34.eu-west-1.compute.internal.28142: Flags [.], cksum 0x1e26 (incorrect -> 0xcdaf), seq 7169, ack 170053, win 1537, options [nop,nop,TS val 3049518844 ecr 85264528], length 0
+...
+22:02:50.672670 IP (tos 0x0, ttl 255, id 54334, offset 0, flags [DF], proto TCP (6), length 628)
+    ip-10-0-5-222.eu-west-1.compute.internal.http > ip-10-0-4-34.eu-west-1.compute.internal.28142: Flags [P.], cksum 0x2066 (incorrect -> 0xb7c0), seq 7169:7745, ack 170053, win 1537, options [nop,nop,TS val 3049520039 ecr 85264528], length 576: HTTP, length: 576
+        HTTP/1.1 200 OK
+        Server: nginx
+        Date: Wed, 06 Dec 2023 22:02:50 GMT
+        Content-Type: application/json;charset=utf-8
+        Transfer-Encoding: chunked
+        Connection: keep-alive
+        Vary: Accept-Encoding
+        Cache-Control: no-cache, private
+        ETag: W/"z4BhKskgZrcVMokz7qzV0KTfA5foJ2wJHB8tcXDQIGQ"
+...
+        Content-Encoding: gzip
+...
+22:02:50.672854 IP (tos 0x0, ttl 255, id 9480, offset 0, flags [DF], proto TCP (6), length 52)
+    ip-10-0-4-34.eu-west-1.compute.internal.28142 > ip-10-0-5-222.eu-west-1.compute.internal.http: Flags [.], cksum 0xc741 (correct), seq 170053, ack 7745, win 174, options [nop,nop,TS val 85265766 ecr 3049520039], length 0
+```
+- see also TCP Sequence and Acknowledgement Numbers Explained: https://madpackets.com/2018/04/25/tcp-sequence-and-acknowledgement-numbers-explained/ 
+	- 
+- Understanding TCP Seq & Ack Numbers [Packet-by-Packet] | GoLinuxCloud https://www.golinuxcloud.com/tcp-sequence-acknowledgement-numbers/ 
+
+
+## Resources
+
+* 
+

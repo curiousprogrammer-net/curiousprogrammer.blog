@@ -194,7 +194,7 @@ Fixing the problem was really simple - just use `some->` to make sure `nil` is n
 and different configurations making it harder to spot and reproduce problems
 * There are often multiple contributing factors under the hood of a tricky problem, not a single "root cause"
 
-## Resources
+## References
 
 * https://codescene.com/rest-api?category=payment-pricing[CodeScene REST API^]
 * https://github.com/ring-clojure/ring/wiki/Concepts#middleware[Ring's middlewares^].

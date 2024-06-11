@@ -2,7 +2,7 @@
 :date "2022-01-24"
 :title "Weekly Bits 01/2022 - analyzing dependencies with clj-kondo, AWS architect mindset, 5 JavaScript features you should learn"
 :layout :post
-:tags  ["weekly-bits" "aws" "security" "javascript" "clojure"]
+:tags  ["weekly-bits" "aws" "security" "javascript" "clojure" "api-security-in-action"]
 }
 
 :toc:

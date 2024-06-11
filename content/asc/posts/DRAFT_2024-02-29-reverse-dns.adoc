@@ -1,0 +1,34 @@
+{
+:date "2099-01-01"
+:title "Reverse DNS"
+:layout :post
+:tags  ["networking" "dns"]
+}
+
+:toc:
+
+_This is a shorter follow-up to my previous in-depth article link:/posts/DRAFT_2023-10-31-dns-recursive-resolution.asc.
+Here I focus on _reverse_ DNS records and the role they play._
+
+
+
+## TODO: Reverse DNS [MAYBE SKIP]
+
+TODO: Do I really want to do this? 
+
+So far, we only talked about "forward" DNS, that is translating names to IPs.
+This is the most critical function of DNS.
+However, the reverse path, translating IPs to names, is sometimes important too.
+
+One situation where is it important
+
+Here we discuss it briefly.
+
+See also TCP/IP Illustrated, Volume 1, 2nd ed by Steves - Section 11.5.6.4 _Reverse DNS QUeries: PTR (Pointer) records_.
+
+
+
+## Resources
+
+
+

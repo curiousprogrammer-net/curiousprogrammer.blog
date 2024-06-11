@@ -2,7 +2,7 @@
 :date "2022-02-28"
 :title "Weekly Bits 05/2022 - Ukraine, CloudFront & OriginCommError, Double-submit cookies, Frontend monitoring, Emacs' query-replace-regexp"
 :layout :post
-:tags  ["weekly-bits" "clojure" "aws" "emacs" "security" "war"]
+:tags  ["weekly-bits" "clojure" "aws" "emacs" "security" "war" "api-security-in-action"]
 }
 
 :toc:

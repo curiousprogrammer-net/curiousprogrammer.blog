@@ -1,0 +1,37 @@
+{
+:date "2099-01-01"
+:title "DNS in Java (and on the JVM)"
+:layout :post
+:tags  ["networking" "dns" "java" "clojure"]
+}
+
+:toc:
+
+_This is a shorter follow-up to my previous in-depth article link:/posts/DRAFT_2023-10-31-dns-recursive-resolution.asc.
+Here I focus on selected parts of Java DNS resolution and present the dnsjava library._
+
+
+## TODO: DNS resolution on the JVM (Clojure, Java)
+
+TODO: write a short section about how it works and what you can use.
+
+Try to debug it's (recursive?) resolution process and maybe point out specific parts of the code
+implementing it
+
+Link my mail-checker library (MX records)
+
+### dnsjava
+
+* https://github.com/dnsjava/dnsjava[dnsjava^] - a decent DNS client written in java
+** https://sourceforge.net/p/dnsjava/mailman/message/528717/[Re: ns delegation, unix dig vs dnsjava dig vs dnsjava Lookup^] - discusses "Stub resolvers" vs. "Full/Recursive resolvers"
+* https://intodns.com/codescene.com[intoDNS website]
+
+
+
+## Resources
+
+
+* Link:
+* https://github.com/dnsjava/dnsjava[dnsjava^] - a decent DNS client written in java
+** https://sourceforge.net/p/dnsjava/mailman/message/528717/[Re: ns delegation, unix dig vs dnsjava dig vs dnsjava Lookup^] - discusses "Stub resolvers" vs. "Full/Recursive resolvers"
+

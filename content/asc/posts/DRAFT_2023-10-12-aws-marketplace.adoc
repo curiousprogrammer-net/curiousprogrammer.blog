@@ -1,0 +1,18 @@
+{
+:date "2099-01-01"
+:title "AWS Marketplace: the stuff you want to know (when publishing a product)"
+:layout :post
+:tags  ["aws" "marketplaces" "deployment"]
+}
+
+:toc:
+
+## Quick list
+
+* Cloudformation template products and how they are created.
+What are their limitations?
+* AMI-based and various regions
+** how to get the latest ami (SSM params?)
+** gov-cloud regions 
+
+

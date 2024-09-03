@@ -1,0 +1,271 @@
+{
+:date "2024-09-03"
+:title "CloudFront: the mysterious case of a missing If-None-Match header"
+:layout :post
+:tags  ["aws" "caching" "performance" "architecture" "infrastructure"]
+}
+
+:toc:
+
+_For months, we've been suffering from mediocre performance of part of our website (codescene.io)
+due to inability to effectively cache expensive page loads.
+A large part of it was a problem with CloudFront I discovered in December 2023 after conversation with the AWS Support team.
+Here's a story of solving this problem._
+
+
+## TL;DR:
+
+[quote, AWS Support]
+____
+unfortunately at this time CloudFront does not currently support 'Conditional' requests when CloudFront is configured to to forward cookies.
+"If-Modified-Since and If-None-Match conditional requests are not supported when CloudFront is configured to forward cookies (all or a subset)."
+____
+
+See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html
+
+### TL;DR: Solution
+
+I created a CloudFront function that parses `If-None-Match` header in the viewer's request
+and passes it to the origin server by copying the value into a custom `X-If-None-Match` header.
+I modified the backend app to check both of these headers and return a cached response (304)
+if the etag matches the current app state.
+
+
+## WHAT?!?
+
+The above statement from AWS support was quite surprising: If-None-Match is a standard HTTP header
+and it's often used to skip expensive computation on the server
+if the client already has an up to date version of the resource.
+An HTTP request is still made but the server can skip any extra processing
+and just return a pre-computed result presumably stored in a cache.
+
+It sounds ridiculous that CloudFront (being a CDN) has no support for this very common technique.
+
+## WHERE & HOW (projects page and introducing ETag-based caching)
+
+We had some serious problems with the performance of our projects dashboard (codescene.io/projects) so we tried to optimize it.
+We tuned DB queries and we introduced caching via ETag-s.
+
+It looked quite good and, it seemed, we were able to skip some expensive processing by caching projects page data in Redis
+and reusing it for subsequent requests for the same user/account.
+The tests looked promising and we were observing expected 304 responses (confirmed by inspecting networking traffic in the Browser console).
+
+## Interlude: the webapp deployment architecture
+
+The deployment of our webapp isn't very complicated.
+
+It uses CloudFront as the front layer, then an elastic load balancer (ELB) which terminates HTTPS
+and proxies the traffic (plain HTTP) to the origin server running nginx (for static content)
+which finally proxies the requests for the dynamic content to an application HTTP server
+running on the same node:
+
+
+[source]
+----
+CloudFront distribution -> ELB (terminates HTTPS) -> Web node (nginx) -> Web node (app HTTP server)
+----
+
+
+## BUT (confused observer)
+
+The DB load wasn't significantly decreasing and monitoring of real /projects page requests
+didn't reveal any big improvements.
+How was that possible? Shouldn't caching improve it a lot, especially if it's the same user having the /projects page open for a long time?
+(the page is polling the server in regular intervals so over time we would see a lot of requests from people, until they close the page)
+
+The responses looked good from the client's point of view (getting 304):
+
+image::/img/2024-08-12-cloudfront/browser-console.png[Browser console showing 304 responses from CloudFront]
+
+I was puzzled so I eventually looked into logs.
+The access logs on the origin server didn't look as good: we were returning 200 responses instead!
+That meant we are doing all the expensive computation (DB queries) we were supposed to avoid - notice the response code 200 just after the "GET ...":
+
+[source]
+----
+10.0.0.217 - - [09/Jul/2024:04:14:18 +0000] "GET /projects/run-status-demo HTTP/1.1" 200 146 2.420 "https://codescene.io/demo-projects" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" "86.49.232.245, 64.252.87.167"
+----
+
+CloudFront was not only working as expected, it was also hiding the problem from us
+and pretending it all worked!
+
+
+### tcpdump-ing
+
+Still confused, I turned to tcpdump to get the details about HTTP requests.
+The deployment architecture of our app is simple:
+
+I run tcpdump on the web node and was able to observe the content
+since it's pure HTTP at that point:
+
+[source]
+----
+    ip-10-0-4-99.eu-west-1.compute.internal.gw > ip-10-0-3-215.eu-west-1.compute.internal.http: Flags [P.], cksum 0xc665 (correct), seq 2212:4034, ack 457, win 424, options [nop,nop,TS val 1507972921 ecr 1504231166], length 1822: HTTP, length: 1822
+        GET /projects/run-status-demo HTTP/1.1
+        host: staging.codescene.io
+        Accept: application/json
+        Accept-Encoding: br,gzip
+        Accept-Language: en
+        CloudFront-Forwarded-Proto: https
+... # other headers
+----
+I removed a bunch of headers above, but the key point was that the If-None-Match header wasn't present at all.
+
+To confirm that I'm not missing anything obvious, I passed the ETag header returned previously by the server
+manually using curl (on the web node)
+and observed it indeed returned 304:
+
+[source]
+----
+curl -H'If-None-Match:  W/"z4BhKskgZrcVMokz7qzV0KTfA5foJ2wJHB8tcXDQIGQ"' -v localhost:80/projects/run-status-4f-demo
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> GET /projects/run-status-4f-demo HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.61.1
+> Accept: */*
+> If-None-Match:  W/"z4BhKskgZrcVMokz7qzV0KTfA5foJ2wJHB8tcXDQIGQ"
+>
+< HTTP/1.1 304 Not Modified
+< Server: nginx
+< Date: Mon, 04 Dec 2023 20:47:38 GMT
+...
+< Cache-Control: no-cache, private
+< ETag: W/"z4BhKskgZrcVMokz7qzV0KTfA5foJ2wJHB8tcXDQIGQ"
+...
+----
+
+
+
+## WHY (AWS Support rendezvous)
+
+I was unable to explain this behavior so I decided to contact AWS support.
+After a lot of back and forth, I got this information from them (quoted at the beginning of the article):
+
+[quote, AWS Support]
+____
+unfortunately at this time CloudFront does not currently support 'Conditional' requests when CloudFront is configured to to forward cookies.
+"If-Modified-Since and If-None-Match conditional requests are not supported when CloudFront is configured to forward cookies (all or a subset)."
+____
+
+I hardly believe them at all - is it really the case that they do not support such a foundational caching pattern?
+
+I tried to dig deeper and find a fix but it lead to nowhere.
+Eventually, I had to focus on another stuff and this problem got down-prioritized.
+
+
+## THEN (If you didn't fix it, it's ain't fixed)
+
+Several months passed by and we were having serious issues with the projects page again.
+I remembered my old struggles so I reached out to AWS support again - if nothing else, they should confirm the root cause.
+Or maybe they will suggest a proper solution this time?
+
+No surprise, unfortunately - it took a while to get the information but they finally confirmed this is CloudFront's intended behavior.
+They promised to add this to the team's backlog but there's little chance they will do anything about it.
+
+This reminds, one more time, that if you ignore problems they will come back.
+The "if you didn't fix it, it ain't fixed" phrase comes from my all-time favorite book
+link:https://www.amazon.com/Debugging-Indispensable-Software-Hardware-Problems/dp/0814474578[DEBUGGING by David J Agans^]
+
+
+## HENCE (rolling sleeves up)
+
+Seeing no option to solve this I was becoming desperate.
+How can I fix this damn thing?!
+Do I need to wait for the CloudFront team (possibly ad infinitum) until they make it possible?
+
+Fortunately, I got an idea: If Cloudfront is _receiving_ but not passing the If-None-Match header
+then maybe I can copy its value into a custom header and pass that instead?!?
+I remembered I did something similar with Lambda@Edge function
+(adding a few link:https://securityheaders.com/?q=codescene.io&followRedirects=on[security headers^] to all responses)
+years ago.
+
+## WHAT (CloudFront function)
+
+After looking around, it seems that using a CloudFront function might be better - they are simpler, faster, and cheaper.
+A quick experiment on staging and I was able to confirm it works (on our staging).
+
+The function code looks straightforward - if there's 'if-none-match' header in the request data,
+then its value is copied into the 'x-if-none-match' header and the updated request is returned (that means it's passed to the origin).
+
+
+[source,javascript]
+----
+function handler(event) {
+    var request = event.request;
+    // CloudFront converts headers to lowercase - see https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html#functions-event-structure-headers
+    var ifNoneMatchHeader = request.headers['if-none-match'] && request.headers['if-none-match'].value;
+
+    if (ifNoneMatchHeader) {
+        // add a special header which won't be removed by CloudFront when passing request to the origin
+        console.log('Setting x-if-none-match with the following value:' + ifNoneMatchHeader);
+        request.headers['x-if-none-match'] = {value: ifNoneMatchHeader};
+    }
+
+    return request;
+}
+----
+
+Of course, I also had to modify our application code to check the x-if-none-match header.
+Here's a simplified version of the code to extract ETag from the request:
+
+[source,clojure]
+----
+(defn request-etag
+  "Extracts ETag value from the request.
+  Presumably, this is stored in the 'if-none-match' header,
+  but in case CloudFront is used, we must use 'x-if-none-match' header instead;
+  that's our custom header populated by the FixIfNoneMatch CloudFront function.
+
+  If both headers are present (unlikely) then 'x-if-none-match' takes precedence."
+  ([req]
+   (request-etag req true))
+  ([{:keys [headers] :as _req} unwrap-weak-etag-prefix?]
+   (let [etag (get headers "if-none-match"
+                   (get headers "x-if-none-match"))]
+     etag)))
+----
+
+
+### Seeing is believing
+
+Using my favorite tcpdump again, I can confirm that the X-If-None-Match header is passed properly.
+
+[source]
+----
+    ip-10-0-4-99.eu-west-1.compute.internal.46404 > ip-10-0-3-215.eu-west-1.compute.internal.http: Flags [P.], cksum 0x5f82 (correct), seq 1019078678:1019080668, ack 3054198987, win 106, options [nop,nop,TS val 1661233707 ecr 1657467710], length 1990: HTT
+P, length: 1990
+        GET /projects/run-status HTTP/1.1
+...
+        X-If-None-Match: W/"jEzxfw64HBU1CYpd28HQiKhV-hlSMGCnfz6K3JpEdZk"
+----
+
+
+We are done here!
+
+
+
+## Solution Architecture
+
+This is a high-level sketch of the important components and how they play together.
+The crucial piece is the `FixIfNoneMatch` CloudFront function that adds the `X-If-None-Match` header to the origin request.
+
+image::/img/2024-08-12-cloudfront/CloudFront_if-none-match_solution-architecture.png[Solution architecture sketch]
+
+Or check link:/img/2024-08-12-cloudfront/CloudFront_if-none-match_solution-architecture.pdf[the PDF version^].
+
+
+## Resources
+
+### CloudFront
+
+* **My previous post about CloudFront**: link:/posts/2022-02-17-cloudfront-origincommerror[prevloudFront and mysterious OriginCommError^] 
+* https://aws.amazon.com/cloudfront/[Amazon CloudFront]
+* CloudFront docs: link:https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html[Cache content based on cookies^]
+* link:https://www.honeybadger.io/blog/aws-cloudfront-functions/[An Introduction To AWS CloudFront Functions^]
+* link:https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-at-the-edge-with-low-latency-at-any-scale/[Introducing CloudFront Functions – Run Your Code at the Edge with Low Latency at Any Scale^]
+
+### MISC
+* link:https://www.amazon.com/Debugging-Indispensable-Software-Hardware-Problems/dp/0814474578[DEBUGGING by David J Agans^]
+

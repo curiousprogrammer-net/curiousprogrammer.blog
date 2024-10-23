@@ -1,0 +1,87 @@
+{
+:date "2099-09-03"
+:title "CloudFront Origin Access Control (OAC) and hosting public website in a private S3 bucket."
+:layout :post
+:tags  ["aws" "infrastructure" "security"]
+}
+
+
+:toc:
+
+
+What could go wrong with replacing migrating a public S3 bucket with _static website hosting_
+with a more secure alternative _CloudFront Origin Access Control (OAC) + private bucket?
+A bunch, it seems...
+
+## 403
+
+Right there, in my face:
+
+
+image::/img/2024-10-21-cloudfront-oac/docs-site-s3-access-denied.png[403 - Access denied from S3 when accessing docs.enterprise.codescene.io, 1000]
+
+
+It's late Friday afternoon and I already wanted to be on my way home.
+But I'm stuck with this, presumably quick, migration from public S3
+
+
+## Why bother?
+
+Well, Trusted Advisor told me to do so.
+They report public S3 buckets and report them as potentially insecure.
+Which is a good thing - 
+
+I thought this would be quick and good - after all, Trusted Advisor themselves recommended
+
+### S3 data leaks
+
+According to https://www.bitdefender.com/en-us/blog/businessinsights/worst-amazon-breaches/[Leaky Buckets: 10 Worst Amazon S3 Breaches^],
+public S3 buckets are common sources of serious data leaks.
+
+This is one big reason o
+
+### Broken windows
+
+The other reason why I think it's good to keep a clean report,
+is the syndrom of "Broken Windows" footnote:[see also The Pragmatic Programmer book]
+
+https://blog.codinghorror.com/the-broken-window-theory/[Jeff Atwood summarizes it well^]:
+
+[quote, Jeff Atwood]
+____
+What's fascinating to me is that the mere perception of disorder — even with seemingly irrelevant petty crimes like graffiti or minor vandalism — precipitates a negative feedback loop that can result in total disorder
+...
+Programming is insanely detail oriented, and perhaps this is why: if you're not on top of the details, the perception is that things are out of control, and it's only a matter of time before your project spins out of control. Maybe we should be sweating the small stuff.
+____
+
+So we should pay attention to the details - a few open buckets? who cares?
+The problem is that you will stop paying attention to these reports.
+It's like with failing tests - if they fail for a while without a good reason.
+
+
+## Got it - just get it done.
+
+Ok, so let's agree it's a good idea to block public access to your S3 buckets
+in almost all the cases.
+But how do you that in practice, when you actually need to expose the data via public website?
+
+### Static website hosting
+
+The classic solution is to make the bucket public (!)
+and enable link:[_Static website hosting_^]
+
+This is what we did in the past - but that obviously doesn't solve the problem with public buckets;
+in fact, it's the _source_ of the problem footnote:[I find it funny when AWS reports (security) issues
+related to your aws resources while at the same time they promote the same setups
+in https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html[their documentation^]]
+
+
+### CloudFront OAC
+
+
+## Resources
+
+* https://www.bitdefender.com/en-us/blog/businessinsights/worst-amazon-breaches/[Leaky Buckets: 10 Worst Amazon S3 Breaches^]
+* https://blog.codinghorror.com/the-broken-window-theory/[The Broken Window Theory^]
+* https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html[Hosting a static website using Amazon S3^]
+** https://docs.aws.amazon.com/AmazonS3/latest/userguide/EnableWebsiteHosting.html[Enabling website hosting^]

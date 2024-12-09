@@ -38,3 +38,8 @@ and combining it together:
 
 
 ## Resources
+
+- https://unix.stackexchange.com/questions/255751/separate-lsof-output-by-column^
+- https://unix.stackexchange.com/questions/94357/find-out-current-working-directory-of-a-running-process^
+- https://unix.stackexchange.com/questions/371699/tee-for-commands^
+  - notably https://unix.stackexchange.com/a/371701/63528[process substitution^]

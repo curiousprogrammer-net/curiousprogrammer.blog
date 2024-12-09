@@ -261,7 +261,7 @@ Or check link:/img/2024-08-12-cloudfront/CloudFront_if-none-match_solution-archi
 ### CloudFront
 
 * **My previous post about CloudFront**: link:/posts/2022-02-17-cloudfront-origincommerror[prevloudFront and mysterious OriginCommError^] 
-* https://aws.amazon.com/cloudfront/[Amazon CloudFront]
+* https://aws.amazon.com/cloudfront/[Amazon CloudFront^]
 * CloudFront docs: link:https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html[Cache content based on cookies^]
 * link:https://www.honeybadger.io/blog/aws-cloudfront-functions/[An Introduction To AWS CloudFront Functions^]
 * link:https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-at-the-edge-with-low-latency-at-any-scale/[Introducing CloudFront Functions – Run Your Code at the Edge with Low Latency at Any Scale^]

@@ -1,0 +1,306 @@
+{
+:date "2024-12-09"
+:title "CloudFront Origin Access Control (OAC) and hosting public website in a private S3 bucket."
+:layout :post
+:tags  ["aws" "infrastructure" "security"]
+}
+
+
+:toc:
+
+
+What could go wrong when migrating a public S3 bucket with _static website hosting_
+to a more secure alternative using _CloudFront Origin Access Control_ (OAC) and making the bucket private?
+
+## 403
+
+Right there, in your face:
+
+
+image::/img/2024-10-21-cloudfront-oac/docs-site-s3-access-denied.png[403 - Access denied from S3 when accessing docs.enterprise.codescene.io, 1000]
+
+
+It's late Friday afternoon and I already wanted to be on my way home.
+But I'm stuck with this "quick fix".
+
+
+## Why bother?
+
+Well, _Trusted Advisor_ told us to do so.
+They report public S3 buckets as potentially insecure.
+Which is a good thing, after all.
+
+
+### S3 data leaks
+
+According to https://www.bitdefender.com/en-us/blog/businessinsights/worst-amazon-breaches/[Leaky Buckets: 10 Worst Amazon S3 Breaches^],
+public S3 buckets are common sources of serious data leaks.
+
+This is one big reason why to strive for keeping the number of your public buckets very close to zero.
+
+### Broken windows
+
+The other reason to keep a clean slate,
+is the syndrom of "Broken Windows" footnote:[see also The Pragmatic Programmer book]
+
+https://blog.codinghorror.com/the-broken-window-theory/[Jeff Atwood summarizes it well^]:
+
+[quote, Jeff Atwood]
+____
+What's fascinating to me is that the mere perception
+of disorder — even with seemingly irrelevant petty crimes like graffiti
+or minor vandalism — precipitates a negative feedback loop that can result in total disorder
+...
+
+Programming is insanely detail oriented, and perhaps this is why:
+if you're not on top of the details, the perception is that things are out of control,
+and it's only a matter of time before your project spins out of control.
+Maybe we should be sweating the small stuff.
+____
+
+So we should **pay attention to the details**.
+
+You might say: "A few open buckets? Who cares?"
+The problem is that you will stop paying attention to these reports.
+It's like with failing tests - if they fail for a while without a good reason, people start ignoring them.
+
+
+## Got it - just get it done.
+
+Let's assume we agree it's almost always a good idea to **block public access to your S3 buckets**.
+But what do you when you need to expose the data through a **public website**?
+
+### Static website hosting
+
+The classic solution is to make the bucket **public** (!)
+and enable link:[_Static website hosting_^]
+
+This is what we did in the past - but that obviously doesn't solve the problem with public buckets;
+in fact, it's the _source_ of the problem footnote:[I find it funny when AWS reports (security) issues
+related to your aws resources while at the same time they promote such setups
+in https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html[their documentation^]]
+
+
+### CloudFront OAC
+
+A couple of yours ago,
+https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/[AWS introduced an option to restrict access to your buckets^]
+via Origin Access Control (OAC).
+
+In short:
+
+1. You update your bucket policy to allow access only from your specific CloudFront distribution
+2. You configure your bucket to _block_ all public access
+3. You **_disable_ static website hosting** in your bucket config (if you have it enabled)
+4. You update CloudFront distribution config to sign all requests to the S3 origin using OAC signing protocol
+5. The S3 origin authenticates and authorizes (or denies) the requests
+
+This obviously assumes you have a **CloudFront distribution** in the first place.
+Fortunately, we already had those for our buckets and I would argue that's a good idea in general - it optimizes your user's experience
+by caching static content.
+
+
+## Where's the catch?
+
+The https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html[official aws instructions^]
+are relatively clear on how to configure OAC.
+
+https://repost.aws/knowledge-center/cloudfront-serve-static-website[This post^]
+can help to get better understanding of the options and outline of the process.
+
+However, it should "just work".
+But we've already seen that it didn't work in my case. Or did it? 
+
+### Look harder
+
+I followed the official guides and did all the setup.
+I tried it multiple times.
+I invalidated CloudFront caches.
+I experimented with the bucket policy (trying even public read access, again).
+
+Nothing helped.
+
+But I made a mistake - I tried to switch a couple of buckets (docs.enterprise.codescene.io and downloads.codescene.io) at the same time.
+
+And I didn't test them properly - at least not downloads.codescene.io.
+If I did, I would notice that `downloads.codescene.io` worked; only `docs.enterprise.codescene.io` didn't!
+
+
+On that late Friday afternoon, I ended up reverting my changes and getting back to "good old public bucket" configuration.
+But I still wanted to fix it.
+And I couldn't understand why it didn't work.
+
+
+### Epiphany: S3 website hosting playing tricks
+
+Then I suddenly realized what was going on: when you visit https://docs.enterprise.codescene.io,
+there's no such thing as magic root object.
+It actually needs to serve the `index.html`file stored in the root of the bucket.
+But how does it know that?
+
+With "website hosting" enabled, S3 automatically adds this to the request path under the hood.
+However, with pure OAC, the requests aren't altered - they are simply passed as-is to the s3 bucket.
+But since there's no such (empty) root object, it responds with 403.
+
+With downloads.codescene.io, the situation is easier - we don't actually serve any HTML pages.
+It's only used for downloading release artifacts with direct links, such as https://downloads.codescene.io/enterprise/latest/codescene-enterprise-edition.standalone.jar
+And that's why it worked without any additional configuration.
+
+But docs.enterprise.codescene.io, that's a different story - it's HTML pages (+ javascript, CSS, images, fonts, and other static files) all the way down.
+
+I did a couple of quick experiments and they confirmed my hypothesis: downloads.codescene.io worked without issues, it was only "docs" having problems.
+
+
+## How to fix it
+
+Ok, so I thought I knew the problem - but what to do?
+I still wanted the docs bucket to be private.
+
+After a bit of googling, I found this: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html
+
+[source,javascript]
+----
+async function handler(event) {
+    const request = event.request;
+    const uri = request.uri;
+
+    // Check whether the URI is missing a file name.
+    if (uri.endsWith('/')) {
+        request.uri += 'index.html';
+    }
+    // Check whether the URI is missing a file extension.
+    else if (!uri.includes('.')) {
+        request.uri += '/index.html';
+    }
+
+    return request;
+}
+
+----
+
+https://serverfault.com/a/776143/402267[Further research^],
+confirmed this idea: just create the CloudFront function and associate it with your distribution.
+I did so with only small modifications - adding logs:
+
+[source,javascript]
+----
+async function handler(event) {
+    const request = event.request;
+    const uri = request.uri;
+
+    console.log("uri before: " + uri);
+
+    // Check whether the URI is missing a file name.
+    if (uri.endsWith('/')) {
+        request.uri += 'index.html';
+    }
+    // Check whether the URI is missing a file extension.
+    else if (!uri.includes('.')) {
+        request.uri += '/index.html';
+    }
+
+    console.log("uri after: " + request.uri);
+
+    return request;
+}
+----
+
+I call this function `FixStaticWebsiteUrlPath`.
+
+And it worked!
+
+### Any gotchas?
+
+There's a small problem with that function: it doesn't work if the path already contains dots and there's no '/' at the end
+such as "6.6.14" in this URL: https://docs.enterprise.codescene.io/versions/6.6.14
+The fix is simple - force the clients to append the slash (`/`) at the end: https://docs.enterprise.codescene.io/versions/6.6.14/
+
+That's a fairly minor issue because most people simply go to https://docs.enterprise.codescene.io/
+and the links there are correct.
+Or they use the latest version: https://docs.enterprise.codescene.io/latest/
+Or they have a full link to a specific section in the docs like https://docs.enterprise.codescene.io/versions/6.7.0/getting-started/index.html
+
+#### UPDATE: broken "/latest" link
+
+After the solution was in place for a while, I got an internal report that https://docs.enterprise.codescene.io/latest (notice _no_ trailing slash)
+is returning a page with broken style and the links there don't work.
+I kinda knew that - it's the same thing as `/versions/6.6.14` mentioned above.
+
+But using the "/latest" link directly is quite common and its awkward to force everyone to append the slash manually.
+So I added a workaround for it - this is the final function:
+
+[source,clojure]
+----
+async function handler(event) {
+    const request = event.request;
+    const uri = request.uri;
+
+    console.log("uri before: " + uri);
+
+    // note: this fixes the problem with '/latest' returning broken page with invalid links
+    // it doesn't help with URLs like '/versions/8.8.0' (missing trailing slash)
+    // but usage of those is rare
+    if (uri.endsWith('/latest')) {
+        return { statusCode: 301, headers: { "location": { "value": "/latest/" } }};
+    }
+
+    // Check whether the URI is missing a file name.
+    if (uri.endsWith('/')) {
+        request.uri += 'index.html';
+    }
+    // Check whether the URI is missing a file extension.
+    else if (!uri.includes('.')) {
+        request.uri += '/index.html';
+    }
+
+    console.log("uri after: " + request.uri);
+
+    return request;
+}
+----
+
+
+## Summary
+
+* I was eager to fix the "public S3" buckets problem reported by Trusted Advisor but didn't think
+through the implications of static website hosting on S3
+* Using CloudFront OAC, the requests paths aren't magically updated to include `index.html` so you need to do it yourself.
+* CloudFront functions are easy & cheap way to modify viewer requests.
+* There are additional edge cases that you might need to handle in addition to what is provided in
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html[the code supplied by AWS^].
+
+### Takeaways
+
+* Small steps ("1 bucket at a time")
+**we all know that but it's often tempting to combine multiple steps together,
+such as when I did the change for both buckets but only tested one of them
+* Dig deeper - do not make random changes hoping the issue goes away
+** Furious attempts to invalidate CloudFront caches didn't fix anything
+* Controlled experiments - create a minimal reproducer
+** I could be better of creating a new bucket with the same configuration as our existing buckets
+and then try to migrate that bucket first - it wouldn't affect anybody and give me confidence
+to apply the changes to production buckets.
+** This is obviously more work but can pay off in the end.
+
+
+### Solution's architecture - visually
+
+A high-level picture showing how the CloudFront function fits in between the user ("viewer")
+and the static files stored in S3.
+
+
+image::/img/2024-10-21-cloudfront-oac/CloudFront_fix-static-website-hosting_summary.png[FixStaticWebsiteUrlPath summary]
+
+
+
+## Resources
+
+* https://www.bitdefender.com/en-us/blog/businessinsights/worst-amazon-breaches/[Leaky Buckets: 10 Worst Amazon S3 Breaches^]
+* https://blog.codinghorror.com/the-broken-window-theory/[The Broken Window Theory^]
+* https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html[Hosting a static website using Amazon S3^]
+** https://docs.aws.amazon.com/AmazonS3/latest/userguide/EnableWebsiteHosting.html[Enabling website hosting^]
+* https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html[Add index.html to request URLs without a file name^]
+  * the CloudFront function for automatically appending index.html to the requests.
+  * see also https://serverfault.com/a/776143/402267[Amazon Cloudfront with S3. Access Denied^]
+
+

@@ -149,7 +149,9 @@ Alternatively, we could have a more generic spec but it would need to allow all 
 
 ## Links
 
-* https://datatracker.ietf.org/doc/html/rfc4648[RFC 4648]
-** https://datatracker.ietf.org/doc/html/rfc4648#section-5[RFC 4648 - Base 64 encoding with URL and Filename Safe Alphabet]
-* https://cljdoc.org/d/buddy/buddy-core/1.10.1/api/buddy.core.codecs#b64u-%3Ebytes[`buddy.core.codecs/bytes->b64u`]
-* link:/posts/2022-02-14-weekly#_api_security_in_action[Api Security in Action]
+* https://en.wikipedia.org/wiki/Base64#Variants_summary_table[**Base64 on Wikipedia**^]
+** this is a great article which explains how the encoding works in general, including padding and different variants (such as URL-safe)
+* https://datatracker.ietf.org/doc/html/rfc4648[RFC 4648^]
+** https://datatracker.ietf.org/doc/html/rfc4648#section-5[RFC 4648 - Base 64 encoding with URL and Filename Safe Alphabet^]
+* https://cljdoc.org/d/buddy/buddy-core/1.10.1/api/buddy.core.codecs#b64u-%3Ebytes[`buddy.core.codecs/bytes->b64u^]
+* link:/posts/2022-02-14-weekly#_api_security_in_action[Api Security in Action^]

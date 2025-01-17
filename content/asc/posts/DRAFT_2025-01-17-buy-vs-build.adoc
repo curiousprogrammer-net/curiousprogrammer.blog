@@ -1,0 +1,20 @@
+{
+:date "2099-01-17"
+:title "Buy vs Build"
+:layout :post
+:tags  []
+}
+
+:toc:
+
+A nuance.
+
+## It's not that simple.
+
+In technology, people often say things like: "Outsource/buy stuff that's not core to your business. Only build stuff where your core focus / expertise is".
+
+I don't think that captures the all of it.
+The trouble is that "Buy" is at odds with learning.
+You are diminishing your skills and capabilities to be independent.
+You "outsource" your skills - possibly forever.
+By not learning, you become ignorant and incapable of good judgment.

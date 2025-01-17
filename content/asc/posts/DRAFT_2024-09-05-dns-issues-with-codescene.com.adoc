@@ -1,0 +1,17 @@
+{
+:date "2099-09-03"
+:title "Mysterious case of codescene.com"
+:layout :post
+:tags  ["networking" "dns"]
+}
+
+
+We had this case on 5th Sep 2024 when codescene.com was mysteriously slow or unavailable for certain clients.
+It turned out, our domain email verification expired - that was one problem.
+But then Google DNS servers had issues (very slow resolution)
+and also the old/new nameservers config wasn't propagated fast enough.
+
+See CodeScene.com / HubSpot - issues with DNS and disconnected domains (09/2024) [Evernote]
+
+:toc:
+

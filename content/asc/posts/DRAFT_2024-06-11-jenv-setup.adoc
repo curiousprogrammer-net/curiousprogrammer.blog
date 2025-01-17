@@ -1,0 +1,54 @@
+{
+:date "2099-01-01"
+:title "My Java/jenv setup on macOS"
+:layout :post
+:tags  ["java"]
+}
+
+:toc:
+
+This is a brief post about the way I set up jenv
+and a couple of issues that you may encounter when using it.
+
+
+## jenv init script
+
+You will need to fix this after every upgrade
+```
+source '/opt/homebrew/Cellar/jenv/0.5.7/libexec/libexec/../completions/jenv.zsh'
+```
+
+so it might be better to use '*':
+```
+# changed hardcoded "0.5.6" version here to '*' to avoid troubles after jenv upgrades
+source /opt/homebrew/Cellar/jenv/*/libexec/libexec/../completions/jenv.zsh
+
+```
+
+See my ~/.zshrc file.
+
+
+## JAVA_HOME Is tricky!
+
+- it works for me for local versions but not global ("system")
+```
+$  jenv local 21.0
+$ cd .
+$ echo $JAVA_HOME
+/Users/jumar/.jenv/versions/21.0
+
+$ ls -l /Users/jumar/.jenv/versions/21.0
+lrwxr-xr-x@ 1 jumar  staff  62 Feb 22 21:45 /Users/jumar/.jenv/versions/21.0 -> /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
+
+# but "system does not exist"
+$ rm .java_version
+$ ls -l $JAVA_HOME
+ls: /Users/jumar/.jenv/versions/system: No such file or directory
+```
+- => THE FIX: use jenv global
+```
+jenv global 21.0
+```
+
+
+## Resources
